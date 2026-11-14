@@ -7,3 +7,5 @@ uploads/
 *.zip
 submission/*-private.json
 .openai/*.json.tmp
+submission/*-raw.png
+submission/*-browser.jpg

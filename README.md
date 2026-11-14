@@ -51,7 +51,7 @@ npm run evidence
 
 `user-story.md` and `.github/ISSUE_TEMPLATE/user-story.md` contain the user story template. Eight stories are defined in `data/user-stories.json`. After authenticating GitHub, `npm run publish:github` creates a public repository and its labeled issues using an in-memory `GITHUB_TOKEN` environment variable. Push source separately. `submission/github-links.json` contains the URLs after publication.
 
-For task 2, save a genuine screenshot of the repository's Issues page as `userstories.png`. For task 10, save a genuine browser screenshot of the deployed landing page, including its URL bar, as `deployed_landingpage.png`.
+For task 2, upload the provided `submission/userstories.png`: all eight GitHub Issues and their labels are visible. For task 10, upload `submission/deployed_landingpage.png`: the real Chrome URL bar, project name, description, and Get Started button are visible. The public deployed landing page is https://ramazanutegen583-pixel.github.io/second-chance-capstone/.
 
 ## CI/CD
 

@@ -19,6 +19,7 @@ const category = await request(`/api/secondchance/search?category=${encodeURICom
 assert.ok(category.body.length > 0);
 assert.ok(category.body.every(item => item.category.toLowerCase() === sample.category.toLowerCase()));
 assert.deepEqual((await request('/api/secondchance/search?category=.*')).body, [], 'Category input must be treated as literal text.');
+assert.deepEqual((await request('/api/secondchance/search?q=%21%21%21')).body, [], 'A punctuation-only search must not return unrelated items.');
 assert.equal((await request('/api/secondchance/items', { method: 'POST' })).status, 401);
 
 const email = `integration-${Date.now()}@example.com`;

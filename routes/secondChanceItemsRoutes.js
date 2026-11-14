@@ -29,11 +29,13 @@ function itemQuery(id) {
   return { $or: alternatives };
 }
 
+// GET /api/secondchance/items
 router.get('/', asyncRoute(async (req, res) => {
   const db = await connectToDatabase();
   res.json(await db.collection('items').find({}).toArray());
 }));
 
+// GET /api/secondchance/items/:id
 router.get('/:id', asyncRoute(async (req, res) => {
   const db = await connectToDatabase();
   const item = await db.collection('items').findOne(itemQuery(req.params.id));
@@ -41,6 +43,7 @@ router.get('/:id', asyncRoute(async (req, res) => {
   res.json(item);
 }));
 
+// POST /api/secondchance/items; the multipart image field is named file.
 router.post('/', requireAuth, upload.single('file'), asyncRoute(async (req, res) => {
   const { name, description, category, condition, location } = req.body || {};
   if (![name, description, category].every(value => typeof value === 'string' && value.trim())) {
@@ -59,6 +62,7 @@ router.post('/', requireAuth, upload.single('file'), asyncRoute(async (req, res)
   res.status(201).json({ ...item, _id: result.insertedId });
 }));
 
+// DELETE /api/secondchance/items/:id
 router.delete('/:id', requireAuth, asyncRoute(async (req, res) => {
   const db = await connectToDatabase();
   const item = await db.collection('items').findOne(itemQuery(req.params.id));

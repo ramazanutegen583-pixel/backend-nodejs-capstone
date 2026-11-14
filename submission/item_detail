@@ -1,11 +1,11 @@
-curl -i 'http://localhost:3060/api/secondchance/items/6af818754e6ecb34ff4f318a'
+curl -i 'http://localhost:3060/api/secondchance/items/6af81f67a641d501c46dac63'
 
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 Content-Length: 238
-ETag: W/"ee-xPQEMRmkadBZZHyRAQ/UVDhWD84"
-Date: Sat, 14 Nov 2026 08:16:08 GMT
+ETag: W/"ee-EY2nSo5nDiz+5Le+yWG46xiijKs"
+Date: Sat, 14 Nov 2026 08:44:38 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 
-{"_id":"6af818754e6ecb34ff4f318a","id":1,"name":"Wooden dining chair","description":"A sturdy wooden chair, ready for a new home.","category":"Furniture","condition":"Good","age_years":3,"location":"Central neighborhood","picture":"🪑"}
+{"_id":"6af81f67a641d501c46dac63","id":1,"name":"Wooden dining chair","description":"A sturdy wooden chair, ready for a new home.","category":"Furniture","condition":"Good","age_years":3,"location":"Central neighborhood","picture":"🪑"}

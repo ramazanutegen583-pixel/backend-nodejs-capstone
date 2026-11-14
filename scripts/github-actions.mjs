@@ -53,21 +53,36 @@ if (command === 'enable-pages') {
         steps: job.steps.map(step => ({ name: step.name, status: step.status, conclusion: step.conclusion })) }))
     }, null, 2));
   }
-} else if (command === 'logs') {
+} else if (command === 'logs' || command === 'report') {
   if (!/^\d+$/.test(argument || '')) throw new Error('Supply a numeric workflow run ID.');
   const run = await api(`/actions/runs/${argument}`);
   if (run.conclusion !== 'success') throw new Error(`Workflow is not successful: ${run.status}/${run.conclusion}`);
   const result = await api(`/actions/runs/${argument}/jobs?per_page=100`);
-  let output = `$ node scripts/github-actions.mjs logs ${argument}\n\n`;
+  let output = `$ node scripts/github-actions.mjs ${command} ${argument}\n\n`;
   output += `Workflow: ${run.name}\nRepository: ${repository}\nRun: ${run.html_url}\nCommit: ${run.head_sha}\nStatus: ${run.status}\nConclusion: ${run.conclusion}\n\n`;
   for (const job of result.jobs) {
     output += `=== ${job.name}: ${job.conclusion} ===\n`;
     for (const step of job.steps) output += `${step.number}. ${step.name}: ${step.conclusion}\n`;
-    output += `\n--- Complete GitHub Actions terminal log: ${job.name} ---\n`;
-    output += await api(`/actions/jobs/${job.id}/logs`, 'GET', undefined, true);
+    const log = await api(`/actions/jobs/${job.id}/logs`, 'GET', undefined, true);
+    if (command === 'logs') {
+      output += `\n--- Complete GitHub Actions terminal log: ${job.name} ---\n${log}`;
+    } else {
+      const selectedLines = log.split(/\r?\n/).filter(line => {
+        const message = line.replace(/^\d{4}-\d{2}-\d{2}T\S+\s+/, '').replace(/\x1b\[[0-9;]*m/g, '').trim();
+        return /^(?:"insertedCount"\s*:|PASS:|Second Chance is running at |Deployment verified:|Done in .* using pnpm v|Packages: \+|Progress: .*done$|added \d+ packages? in )/.test(message);
+      });
+      if (selectedLines.length) output += `\n--- Selected original terminal output ---\n${selectedLines.join('\n')}`;
+    }
     output += '\n\n';
   }
   await mkdir(new URL('../submission/', import.meta.url), { recursive: true });
-  await writeFile(new URL('../submission/CICD', import.meta.url), output);
+  if (command === 'logs') {
+    await Promise.all([
+      writeFile(new URL('../submission/CICD', import.meta.url), output),
+      writeFile(new URL('../submission/CICD-full.log', import.meta.url), output)
+    ]);
+  } else {
+    await writeFile(new URL('../submission/CICD-copy.txt', import.meta.url), output);
+  }
   console.log(output);
-} else throw new Error('Usage: node scripts/github-actions.mjs enable-pages | status [commit] | logs RUN_ID');
+} else throw new Error('Usage: node scripts/github-actions.mjs enable-pages | status [commit] | logs RUN_ID | report RUN_ID');
