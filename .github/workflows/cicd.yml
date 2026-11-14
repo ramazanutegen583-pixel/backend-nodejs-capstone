@@ -1,0 +1,121 @@
+name: Second Chance CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['submission/**', 'README.md']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cicd-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-test:
+    name: Install, test, and package
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      MONGODB_URI: mongodb://127.0.0.1:27017
+      MONGODB_DATABASE: secondChance
+      PORT: 3060
+    services:
+      mongodb:
+        image: mongo:7.0
+        ports: ['27017:27017']
+        options: >-
+          --health-cmd "mongosh --quiet --eval 'db.adminCommand({ping:1})'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7.0.1
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '24'
+      - name: Install pnpm and dependencies
+        run: |
+          npm install --global pnpm@11.25.0
+          pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check JavaScript syntax
+        run: |
+          git ls-files '*.js' '*.mjs' | while IFS= read -r file; do
+            node --check "$file"
+          done
+      - name: Import 16 items into MongoDB
+        run: pnpm run seed
+      - name: Start API and wait for readiness
+        run: |
+          export JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
+          node index.js > /tmp/second-chance-api.log 2>&1 &
+          echo $! > /tmp/second-chance-api.pid
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:3060/api/health; then
+              echo "API ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/second-chance-api.log
+          exit 1
+      - name: Run API integration tests
+        run: pnpm test
+      - name: Validate landing page and sample inventory
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { readFileSync, existsSync } from 'node:fs';
+          const html = readFileSync('dist/index.html', 'utf8');
+          assert.ok(html.includes('Second Chance'));
+          assert.ok(html.includes('Get Started'));
+          const items = JSON.parse(readFileSync('dist/data/items.json', 'utf8'));
+          assert.equal(items.length, 16);
+          assert.equal(new Set(items.map(item => item.id)).size, 16);
+          assert.deepEqual(items, JSON.parse(readFileSync('data/items.json', 'utf8')));
+          for (const asset of ['style.css', 'app.js']) assert.ok(existsSync(`dist/${asset}`));
+          console.log('PASS: landing page, Get Started, assets, and 16 matching sample items.');
+          NODE
+      - name: Upload deployable landing page
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: dist
+      - name: Print API log and stop API
+        if: always()
+        run: |
+          if [ -f /tmp/second-chance-api.log ]; then cat /tmp/second-chance-api.log; fi
+          if [ -f /tmp/second-chance-api.pid ]; then kill "$(cat /tmp/second-chance-api.pid)" || true; fi
+
+  deploy:
+    name: Deploy landing page
+    if: github.event_name != 'pull_request'
+    needs: build-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6.0.0
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1
+      - name: Verify deployed landing page
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --location --retry 10 --retry-delay 5 --retry-all-errors "$PAGE_URL" --output /tmp/landing.html
+          grep -q 'Second Chance' /tmp/landing.html
+          grep -q 'Get Started' /tmp/landing.html
+          echo "Deployment verified: $PAGE_URL"
