@@ -1,14 +1,14 @@
 МАТЕРИАЛЫ ДЛЯ СДАЧИ — SECOND CHANCE
 
-Задание 1: ссылка GitHub на user-story.md (будет в github-links.json после входа).
-Задание 2: userstories.png — настоящий скриншот страницы Issues с 8 историями и метками. Истории уже подготовлены в data/user-stories.json; публикация требует входа в GitHub.
+Задание 1: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/user-story.md
+Задание 2: userstories.png — настоящий скриншот страницы Issues с 8 историями и метками. Восемь историй опубликованы: https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues
 Задание 3: скопируйте весь текст файла inserted_items.
-Задание 4: ссылка GitHub на db.js.
-Задание 5: ссылка GitHub на routes/secondChanceItemsRoutes.js.
-Задание 6: ссылка GitHub на routes/searchRoutes.js.
-Задание 7: ссылка GitHub на app.js.
-Задание 8: ссылка GitHub на index.js.
-Задание 9: ссылка GitHub на routes/authRoutes.js.
+Задание 4: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/db.js
+Задание 5: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/secondChanceItemsRoutes.js
+Задание 6: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/searchRoutes.js
+Задание 7: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/app.js
+Задание 8: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/index.js
+Задание 9: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/authRoutes.js
 Задание 10: deployed_landingpage.png — настоящий скриншот опубликованной страницы с адресной строкой, названием, описанием и Get Started.
 Задание 11: скопируйте весь текст mainpage.
 Задание 12: скопируйте весь текст register.
