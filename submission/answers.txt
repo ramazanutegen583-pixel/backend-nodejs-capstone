@@ -15,8 +15,8 @@
 Задание 13: скопируйте весь текст login.
 Задание 14: скопируйте весь текст item_detail.
 Задание 15: скопируйте весь текст search_item.
-Задание 16: для удобного копирования скопируйте весь CICD-copy.txt — настоящий компактный вывод успешного workflow со всеми шагами. Полный журнал сохранён в CICD и CICD-full.log.
-Успешный запуск задания 16: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/runs/43576506119
+Задание 16: скопируйте весь CICD — настоящий компактный вывод успешного workflow со всеми шагами. Полный журнал дополнительно сохранён в CICD-full.log.
+Успешный запуск задания 16: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/runs/43577709243
 
 Развёрнутая главная страница:
 https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/

@@ -1,0 +1,727 @@
+$ node scripts/github-actions.mjs logs 43577709243
+
+Workflow: Second Chance CI/CD
+Repository: ramazanutegen583-pixel/backend-nodejs-capstone
+Run: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/runs/43577709243
+Commit: 8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae
+Status: completed
+Conclusion: success
+
+=== Install, test, and package: success ===
+1. Set up job: success
+2. Initialize containers: success
+3. Check out source: success
+4. Set up Node.js 24: success
+5. Install pnpm and dependencies: success
+6. Check JavaScript syntax: success
+7. Import 16 items into MongoDB: success
+8. Start API and wait for readiness: success
+9. Run API integration tests: success
+10. Validate landing page and sample inventory: success
+11. Upload deployable landing page: success
+12. Print API log and stop API: success
+22. Post Set up Node.js 24: success
+23. Post Check out source: success
+24. Stop containers: success
+25. Complete job: success
+
+--- Complete GitHub Actions terminal log: Install, test, and package ---
+2026-11-14T08:50:35.3399561Z Current runner version: '2.338.2'
+2026-11-14T08:50:35.3421558Z ##[group]Runner Image Provisioner
+2026-11-14T08:50:35.3422223Z Hosted Compute Agent
+2026-11-14T08:50:35.3422589Z Version: 20261103.629
+2026-11-14T08:50:35.3422979Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T08:50:35.3423489Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T08:50:35.3423971Z Worker ID: {7046ce42-11e9-4ecf-9d93-64d4973b66a0}
+2026-11-14T08:50:35.3424440Z Region: centralus
+2026-11-14T08:50:35.3424790Z Cloud: Azure
+2026-11-14T08:50:35.3425120Z ##[endgroup]
+2026-11-14T08:50:35.3426384Z ##[group]Operating System
+2026-11-14T08:50:35.3426810Z Ubuntu
+2026-11-14T08:50:35.3427503Z 26.04.1
+2026-11-14T08:50:35.3427839Z LTS
+2026-11-14T08:50:35.3428164Z ##[endgroup]
+2026-11-14T08:50:35.3428548Z ##[group]Runner Image
+2026-11-14T08:50:35.3428976Z Image: ubuntu-26.04
+2026-11-14T08:50:35.3429358Z Version: 20261111.196.1
+2026-11-14T08:50:35.3430188Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-14T08:50:35.3431106Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-14T08:50:35.3431737Z ##[endgroup]
+2026-11-14T08:50:35.3432460Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T08:50:35.3434040Z Contents: read
+2026-11-14T08:50:35.3434447Z Metadata: read
+2026-11-14T08:50:35.3434845Z ##[endgroup]
+2026-11-14T08:50:35.3436644Z Secret source: Actions
+2026-11-14T08:50:35.3437341Z Cache mode: write
+2026-11-14T08:50:35.3437971Z Prepare workflow directory
+2026-11-14T08:50:35.3787639Z Prepare all required actions
+2026-11-14T08:50:35.3821747Z Getting action download info
+2026-11-14T08:50:35.6378048Z Download action repository 'actions/checkout@v7.0.1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-14T08:50:35.7522906Z Download action repository 'actions/setup-node@v7.1.0' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-11-14T08:50:35.8174972Z Download action repository 'actions/upload-pages-artifact@v5.0.0' (SHA:fc324d3547104276b827a68afc52ff2a11cc49c9)
+2026-11-14T08:50:36.0736084Z Getting action download info
+2026-11-14T08:50:36.1738772Z Download action repository 'actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f' (SHA:bbbca2ddaa5d8feaa63e36b76fdaad77386f024f)
+2026-11-14T08:50:36.3197473Z Complete job name: Install, test, and package
+2026-11-14T08:50:36.3692785Z ##[group]Checking docker version
+2026-11-14T08:50:36.3702699Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-11-14T08:50:36.4696002Z '1.54'
+2026-11-14T08:50:36.4716346Z Docker daemon API version: '1.54'
+2026-11-14T08:50:36.4717774Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-11-14T08:50:36.4880602Z '1.54'
+2026-11-14T08:50:36.4899352Z Docker client API version: '1.54'
+2026-11-14T08:50:36.4905305Z ##[endgroup]
+2026-11-14T08:50:36.4907431Z ##[group]Clean up resources from previous jobs
+2026-11-14T08:50:36.4912245Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=46583a"
+2026-11-14T08:50:36.5055605Z ##[command]/usr/bin/docker network prune --force --filter "label=46583a"
+2026-11-14T08:50:36.5196494Z ##[endgroup]
+2026-11-14T08:50:36.5197175Z ##[group]Create local container network
+2026-11-14T08:50:36.5204744Z ##[command]/usr/bin/docker network create --label 46583a github_network_83d2d1eb3e2540ce9a6fb238f6fef68f
+2026-11-14T08:50:36.5652219Z aad370bd19212b2a788659a0570e5d70dbd024d9823e27dc7333e402bfbdbfca
+2026-11-14T08:50:36.5674347Z ##[endgroup]
+2026-11-14T08:50:36.5694788Z ##[group]Starting mongodb service container
+2026-11-14T08:50:36.5711246Z ##[command]/usr/bin/docker pull mongo:7.0
+2026-11-14T08:50:37.1265016Z 7.0: Pulling from library/mongo
+2026-11-14T08:50:37.3261866Z e8d86a4497e5: Pulling fs layer
+2026-11-14T08:50:37.3262343Z 726169e1c9dd: Pulling fs layer
+2026-11-14T08:50:37.3262678Z 00e4422d7509: Pulling fs layer
+2026-11-14T08:50:37.3263027Z 02163de04dd1: Pulling fs layer
+2026-11-14T08:50:37.3263346Z e09928ae4e2e: Pulling fs layer
+2026-11-14T08:50:37.3263685Z 8d556a605328: Pulling fs layer
+2026-11-14T08:50:37.3264290Z 53a6f332b5d1: Pulling fs layer
+2026-11-14T08:50:37.3264514Z 6468ef172aa5: Pulling fs layer
+2026-11-14T08:50:37.4870096Z 8d556a605328: Download complete
+2026-11-14T08:50:37.4871418Z 00e4422d7509: Download complete
+2026-11-14T08:50:37.4872293Z 6468ef172aa5: Download complete
+2026-11-14T08:50:37.4873103Z e8d86a4497e5: Download complete
+2026-11-14T08:50:37.6863193Z 53a6f332b5d1: Download complete
+2026-11-14T08:50:37.7857097Z e09928ae4e2e: Download complete
+2026-11-14T08:50:37.7862763Z 02163de04dd1: Download complete
+2026-11-14T08:50:37.7864608Z 5ba277efe467: Download complete
+2026-11-14T08:50:37.7872967Z ce7d7479a907: Download complete
+2026-11-14T08:50:39.2900427Z 02163de04dd1: Pull complete
+2026-11-14T08:50:39.6865313Z 726169e1c9dd: Download complete
+2026-11-14T08:50:39.6867985Z 8d556a605328: Pull complete
+2026-11-14T08:50:39.7869743Z 00e4422d7509: Pull complete
+2026-11-14T08:50:39.7893149Z 6468ef172aa5: Pull complete
+2026-11-14T08:50:39.7902212Z 53a6f332b5d1: Pull complete
+2026-11-14T08:50:39.7908608Z e09928ae4e2e: Pull complete
+2026-11-14T08:50:42.2879152Z 726169e1c9dd: Pull complete
+2026-11-14T08:50:42.4770950Z e8d86a4497e5: Pull complete
+2026-11-14T08:50:42.4771504Z Digest: sha256:9896df581dfd0718b7abe112f4c37598d0986c54060e4ec1384997e6503c8c71
+2026-11-14T08:50:42.4771946Z Status: Downloaded newer image for mongo:7.0
+2026-11-14T08:50:42.4786588Z docker.io/library/mongo:7.0
+2026-11-14T08:50:42.4819787Z ##[command]/usr/bin/docker create --name fb5d14b6e9914475846afbc8234230e6_mongo70_d4cf4b --label 46583a --network github_network_83d2d1eb3e2540ce9a6fb238f6fef68f --network-alias mongodb -p 27017:27017 --health-cmd "mongosh --quiet --eval 'db.adminCommand({ping:1})'" --health-interval 10s --health-timeout 5s --health-retries 5 -e GITHUB_ACTIONS=true -e CI=true mongo:7.0
+2026-11-14T08:50:47.6538300Z 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:47.6565567Z ##[command]/usr/bin/docker start 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:47.9575437Z 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:47.9602763Z ##[command]/usr/bin/docker ps --all --filter id=31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-11-14T08:50:47.9787958Z 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb Up Less than a second (health: starting)
+2026-11-14T08:50:47.9821176Z ##[command]/usr/bin/docker port 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:47.9951452Z 27017/tcp -> 0.0.0.0:27017
+2026-11-14T08:50:47.9952194Z 27017/tcp -> [::]:27017
+2026-11-14T08:50:48.0012465Z ##[endgroup]
+2026-11-14T08:50:48.0020868Z ##[group]Waiting for all services to be ready
+2026-11-14T08:50:48.0033490Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:48.0159707Z starting
+2026-11-14T08:50:48.0191940Z mongodb service is starting, waiting 2 seconds before checking again.
+2026-11-14T08:50:50.0191586Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:50.0317130Z starting
+2026-11-14T08:50:50.0334019Z mongodb service is starting, waiting 4 seconds before checking again.
+2026-11-14T08:50:54.2425864Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:50:54.2551955Z starting
+2026-11-14T08:50:54.2569211Z mongodb service is starting, waiting 7 seconds before checking again.
+2026-11-14T08:51:01.9211862Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:51:01.9335924Z healthy
+2026-11-14T08:51:01.9371912Z mongodb service is healthy.
+2026-11-14T08:51:01.9372747Z ##[endgroup]
+2026-11-14T08:51:01.9593312Z ##[group]Run actions/checkout@v7.0.1
+2026-11-14T08:51:01.9593594Z with:
+2026-11-14T08:51:01.9593768Z   repository: ramazanutegen583-pixel/backend-nodejs-capstone
+2026-11-14T08:51:01.9595315Z   token: ***
+2026-11-14T08:51:01.9595434Z   ssh-strict: true
+2026-11-14T08:51:01.9595561Z   ssh-user: git
+2026-11-14T08:51:01.9595909Z   persist-credentials: true
+2026-11-14T08:51:01.9596053Z   clean: true
+2026-11-14T08:51:01.9596184Z   sparse-checkout-cone-mode: true
+2026-11-14T08:51:01.9596337Z   fetch-depth: 1
+2026-11-14T08:51:01.9596453Z   fetch-tags: false
+2026-11-14T08:51:01.9596577Z   show-progress: true
+2026-11-14T08:51:01.9596701Z   lfs: false
+2026-11-14T08:51:01.9596817Z   submodules: false
+2026-11-14T08:51:01.9596946Z   set-safe-directory: true
+2026-11-14T08:51:01.9597093Z   allow-unsafe-pr-checkout: false
+2026-11-14T08:51:01.9597320Z env:
+2026-11-14T08:51:01.9597470Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:01.9597639Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:01.9597840Z   PORT: 3060
+2026-11-14T08:51:01.9597980Z ##[endgroup]
+2026-11-14T08:51:02.2051424Z Syncing repository: ramazanutegen583-pixel/backend-nodejs-capstone
+2026-11-14T08:51:02.2052646Z ##[group]Getting Git version info
+2026-11-14T08:51:02.2053078Z Working directory is '/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone'
+2026-11-14T08:51:02.2053585Z [command]/usr/bin/git version
+2026-11-14T08:51:02.2069612Z git version 2.56.1
+2026-11-14T08:51:02.2084229Z ##[endgroup]
+2026-11-14T08:51:02.2093647Z Temporarily overriding HOME='/home/runner/work/_temp/7e3d526f-f118-4de2-8ca4-ea031abc6e72' before making global git config changes
+2026-11-14T08:51:02.2094239Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T08:51:02.2098212Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone
+2026-11-14T08:51:02.2167117Z Deleting the contents of '/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone'
+2026-11-14T08:51:02.2169533Z ##[group]Determining repository object format
+2026-11-14T08:51:02.2170854Z ##[endgroup]
+2026-11-14T08:51:02.2174506Z ##[group]Initializing the repository
+2026-11-14T08:51:02.2175204Z [command]/usr/bin/git init /home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone
+2026-11-14T08:51:02.2392379Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-14T08:51:02.2392999Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-14T08:51:02.2393495Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-14T08:51:02.2393845Z hint: call:
+2026-11-14T08:51:02.2394020Z hint:
+2026-11-14T08:51:02.2394277Z hint: 	git config --global init.defaultBranch <name>
+2026-11-14T08:51:02.2394606Z hint:
+2026-11-14T08:51:02.2394884Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-14T08:51:02.2395393Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-14T08:51:02.2395895Z hint:
+2026-11-14T08:51:02.2396109Z hint: 	git branch -m <name>
+2026-11-14T08:51:02.2396332Z hint:
+2026-11-14T08:51:02.2396651Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-14T08:51:02.2402142Z Initialized empty Git repository in /home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git/
+2026-11-14T08:51:02.2413161Z [command]/usr/bin/git remote add origin https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone
+2026-11-14T08:51:02.2485251Z ##[endgroup]
+2026-11-14T08:51:02.2485773Z ##[group]Disabling automatic garbage collection
+2026-11-14T08:51:02.2489418Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-14T08:51:02.2529128Z ##[endgroup]
+2026-11-14T08:51:02.2529961Z ##[group]Setting up auth
+2026-11-14T08:51:02.2530248Z Removing SSH command configuration
+2026-11-14T08:51:02.2534838Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T08:51:02.2574607Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T08:51:02.2979565Z Removing HTTP extra header
+2026-11-14T08:51:02.2984700Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T08:51:02.3015632Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T08:51:02.3253392Z Removing includeIf entries pointing to credentials config files
+2026-11-14T08:51:02.3259530Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T08:51:02.3298308Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T08:51:02.3538889Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-14T08:51:02.3578414Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git.path /home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:02.3610597Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:02.3643241Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:02.3671160Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:02.3698356Z ##[endgroup]
+2026-11-14T08:51:02.3703343Z ##[group]Fetching the repository
+2026-11-14T08:51:02.3703910Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae:refs/remotes/origin/main
+2026-11-14T08:51:02.8294589Z From https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone
+2026-11-14T08:51:02.8295147Z  * [new ref]         8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae -> origin/main
+2026-11-14T08:51:02.8302497Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-14T08:51:02.8329217Z   origin/main
+2026-11-14T08:51:02.8336098Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-14T08:51:02.8358632Z 8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae
+2026-11-14T08:51:02.8361864Z ##[endgroup]
+2026-11-14T08:51:02.8362224Z ##[group]Determining the checkout info
+2026-11-14T08:51:02.8362982Z ##[endgroup]
+2026-11-14T08:51:02.8366863Z [command]/usr/bin/git sparse-checkout disable
+2026-11-14T08:51:02.8420621Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-14T08:51:02.8451889Z ##[group]Checking out the ref
+2026-11-14T08:51:02.8455562Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-14T08:51:02.8574262Z Switched to a new branch 'main'
+2026-11-14T08:51:02.8578765Z branch 'main' set up to track 'origin/main'.
+2026-11-14T08:51:02.8584490Z ##[endgroup]
+2026-11-14T08:51:02.8631812Z [command]/usr/bin/git log -1 --format=%H
+2026-11-14T08:51:02.8658865Z 8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae
+2026-11-14T08:51:02.8862907Z ##[group]Run actions/setup-node@v7.1.0
+2026-11-14T08:51:02.8863083Z with:
+2026-11-14T08:51:02.8863209Z   node-version: 24
+2026-11-14T08:51:02.8863336Z   check-latest: false
+2026-11-14T08:51:02.8864728Z   token: ***
+2026-11-14T08:51:02.8865009Z   package-manager-cache: true
+2026-11-14T08:51:02.8865153Z env:
+2026-11-14T08:51:02.8865297Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:02.8865469Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:02.8865624Z   PORT: 3060
+2026-11-14T08:51:02.8865935Z ##[endgroup]
+2026-11-14T08:51:02.9850511Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-14T08:51:03.0546270Z ##[group]Environment details
+2026-11-14T08:51:03.3402848Z node: v24.22.2
+2026-11-14T08:51:03.3403149Z npm: 11.19.1
+2026-11-14T08:51:03.3403323Z yarn: 1.22.22
+2026-11-14T08:51:03.3404679Z ##[endgroup]
+2026-11-14T08:51:03.3699627Z ##[group]Run npm install --global pnpm@11.25.0
+2026-11-14T08:51:03.3699913Z [36;1mnpm install --global pnpm@11.25.0[0m
+2026-11-14T08:51:03.3700142Z [36;1mpnpm install --frozen-lockfile --ignore-scripts[0m
+2026-11-14T08:51:03.3755488Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:03.3755778Z env:
+2026-11-14T08:51:03.3755947Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:03.3756137Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:03.3756285Z   PORT: 3060
+2026-11-14T08:51:03.3756408Z ##[endgroup]
+2026-11-14T08:51:04.3686047Z 
+2026-11-14T08:51:04.3692463Z added 1 package in 945ms
+2026-11-14T08:51:04.3692668Z 
+2026-11-14T08:51:04.3692820Z 1 package is looking for funding
+2026-11-14T08:51:04.3693056Z   run `npm fund` for details
+2026-11-14T08:51:04.9795633Z ? Verifying lockfile against supply-chain policies (178 entries)...
+2026-11-14T08:51:04.9845035Z Lockfile is up to date, resolution step is skipped
+2026-11-14T08:51:05.0500300Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-11-14T08:51:05.0649730Z Packages: +178
+2026-11-14T08:51:05.0650728Z ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-11-14T08:51:05.6729043Z Packages are hard linked from the content-addressable store to the virtual store.
+2026-11-14T08:51:05.6744542Z   Content-addressable store is at: /home/runner/.local/share/pnpm/store/v11
+2026-11-14T08:51:05.6761193Z   Virtual store is at:             node_modules/.pnpm
+2026-11-14T08:51:05.6928687Z ✓ Lockfile passes supply-chain policies (178 entries in 711ms)
+2026-11-14T08:51:05.9596367Z Progress: resolved 178, reused 0, downloaded 178, added 178, done
+2026-11-14T08:51:06.0642177Z 
+2026-11-14T08:51:06.0642823Z dependencies:
+2026-11-14T08:51:06.0643129Z + bcryptjs 3.0.3
+2026-11-14T08:51:06.0643338Z + dotenv 17.4.2
+2026-11-14T08:51:06.0643525Z + express 5.3.0
+2026-11-14T08:51:06.0643744Z + jsonwebtoken 9.0.3
+2026-11-14T08:51:06.0643956Z + mongodb 6.22.0
+2026-11-14T08:51:06.0644150Z + multer 2.5.0
+2026-11-14T08:51:06.0644408Z + natural 8.2.6
+2026-11-14T08:51:06.0644526Z 
+2026-11-14T08:51:06.0644614Z devDependencies:
+2026-11-14T08:51:06.0644825Z + mongodb-memory-server 10.4.3
+2026-11-14T08:51:06.0644929Z 
+2026-11-14T08:51:06.0727400Z Done in 1.6s using pnpm v11.25.0
+2026-11-14T08:51:06.1409347Z ##[group]Run git ls-files '*.js' '*.mjs' | while IFS= read -r file; do
+2026-11-14T08:51:06.1429048Z [36;1mgit ls-files '*.js' '*.mjs' | while IFS= read -r file; do[0m
+2026-11-14T08:51:06.1429393Z [36;1m  node --check "$file"[0m
+2026-11-14T08:51:06.1429605Z [36;1mdone[0m
+2026-11-14T08:51:06.1473190Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:06.1473340Z env:
+2026-11-14T08:51:06.1473491Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:06.1473659Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:06.1473801Z   PORT: 3060
+2026-11-14T08:51:06.1473921Z ##[endgroup]
+2026-11-14T08:51:06.4698648Z ##[group]Run pnpm run seed
+2026-11-14T08:51:06.4698834Z [36;1mpnpm run seed[0m
+2026-11-14T08:51:06.4741362Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:06.4741511Z env:
+2026-11-14T08:51:06.4741656Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:06.4741828Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:06.4741969Z   PORT: 3060
+2026-11-14T08:51:06.4742091Z ##[endgroup]
+2026-11-14T08:51:06.8050147Z $ node scripts/seed.js
+2026-11-14T08:51:06.9290422Z {
+2026-11-14T08:51:06.9290788Z   "acknowledged": true,
+2026-11-14T08:51:06.9291399Z   "insertedCount": 16,
+2026-11-14T08:51:06.9291623Z   "insertedIds": {
+2026-11-14T08:51:06.9291871Z     "0": "6af820fa3f756d24f5ed31fc",
+2026-11-14T08:51:06.9292144Z     "1": "6af820fa3f756d24f5ed31fd",
+2026-11-14T08:51:06.9292404Z     "2": "6af820fa3f756d24f5ed31fe",
+2026-11-14T08:51:06.9292900Z     "3": "6af820fa3f756d24f5ed31ff",
+2026-11-14T08:51:06.9293163Z     "4": "6af820fa3f756d24f5ed3200",
+2026-11-14T08:51:06.9293503Z     "5": "6af820fa3f756d24f5ed3201",
+2026-11-14T08:51:06.9293756Z     "6": "6af820fa3f756d24f5ed3202",
+2026-11-14T08:51:06.9294007Z     "7": "6af820fa3f756d24f5ed3203",
+2026-11-14T08:51:06.9294262Z     "8": "6af820fa3f756d24f5ed3204",
+2026-11-14T08:51:06.9294494Z     "9": "6af820fa3f756d24f5ed3205",
+2026-11-14T08:51:06.9294912Z     "10": "6af820fa3f756d24f5ed3206",
+2026-11-14T08:51:06.9295172Z     "11": "6af820fa3f756d24f5ed3207",
+2026-11-14T08:51:06.9295431Z     "12": "6af820fa3f756d24f5ed3208",
+2026-11-14T08:51:06.9295849Z     "13": "6af820fa3f756d24f5ed3209",
+2026-11-14T08:51:06.9296116Z     "14": "6af820fa3f756d24f5ed320a",
+2026-11-14T08:51:06.9296373Z     "15": "6af820fa3f756d24f5ed320b"
+2026-11-14T08:51:06.9296608Z   }
+2026-11-14T08:51:06.9296776Z }
+2026-11-14T08:51:06.9544157Z ##[group]Run export JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
+2026-11-14T08:51:06.9544605Z [36;1mexport JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")[0m
+2026-11-14T08:51:06.9544958Z [36;1mnode secondChance-backend/index.js > /tmp/second-chance-api.log 2>&1 &[0m
+2026-11-14T08:51:06.9545211Z [36;1mecho $! > /tmp/second-chance-api.pid[0m
+2026-11-14T08:51:06.9545395Z [36;1mfor attempt in {1..30}; do[0m
+2026-11-14T08:51:06.9545630Z [36;1m  if curl --silent --fail http://127.0.0.1:3060/api/health; then[0m
+2026-11-14T08:51:06.9546144Z [36;1m    echo "API ready"[0m
+2026-11-14T08:51:06.9546353Z [36;1m    exit 0[0m
+2026-11-14T08:51:06.9546472Z [36;1m  fi[0m
+2026-11-14T08:51:06.9546589Z [36;1m  sleep 1[0m
+2026-11-14T08:51:06.9546723Z [36;1mdone[0m
+2026-11-14T08:51:06.9546854Z [36;1mcat /tmp/second-chance-api.log[0m
+2026-11-14T08:51:06.9547083Z [36;1mexit 1[0m
+2026-11-14T08:51:06.9590924Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:06.9591079Z env:
+2026-11-14T08:51:06.9591218Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:06.9591389Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:06.9591533Z   PORT: 3060
+2026-11-14T08:51:06.9591654Z ##[endgroup]
+2026-11-14T08:51:08.0163105Z {"status":"ok"}API ready
+2026-11-14T08:51:08.0197726Z ##[group]Run pnpm test
+2026-11-14T08:51:08.0197991Z [36;1mpnpm test[0m
+2026-11-14T08:51:08.0247525Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:08.0247693Z env:
+2026-11-14T08:51:08.0247842Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:08.0248019Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:08.0248167Z   PORT: 3060
+2026-11-14T08:51:08.0248287Z ##[endgroup]
+2026-11-14T08:51:08.3484498Z $ node test/api.test.js
+2026-11-14T08:51:08.7490375Z PASS: 16 imported items, detail/404, category search, authentication, duplicate protection, profile update, ownership, multipart upload, and deletion.
+2026-11-14T08:51:08.7718752Z ##[group]Run node --input-type=module <<'NODE'
+2026-11-14T08:51:08.7718987Z [36;1mnode --input-type=module <<'NODE'[0m
+2026-11-14T08:51:08.7719166Z [36;1mimport assert from 'node:assert/strict';[0m
+2026-11-14T08:51:08.7719380Z [36;1mimport { readFileSync, existsSync } from 'node:fs';[0m
+2026-11-14T08:51:08.7719605Z [36;1mconst html = readFileSync('dist/index.html', 'utf8');[0m
+2026-11-14T08:51:08.7719816Z [36;1massert.ok(html.includes('Second Chance'));[0m
+2026-11-14T08:51:08.7720004Z [36;1massert.ok(html.includes('Get Started'));[0m
+2026-11-14T08:51:08.7720238Z [36;1mconst items = JSON.parse(readFileSync('dist/data/items.json', 'utf8'));[0m
+2026-11-14T08:51:08.7720468Z [36;1massert.equal(items.length, 16);[0m
+2026-11-14T08:51:08.7720673Z [36;1massert.equal(new Set(items.map(item => item.id)).size, 16);[0m
+2026-11-14T08:51:08.7721108Z [36;1massert.deepEqual(items, JSON.parse(readFileSync('data/items.json', 'utf8')));[0m
+2026-11-14T08:51:08.7721454Z [36;1mfor (const asset of ['style.css', 'app.js']) assert.ok(existsSync(`dist/${asset}`));[0m
+2026-11-14T08:51:08.7721785Z [36;1mconsole.log('PASS: landing page, Get Started, assets, and 16 matching sample items.');[0m
+2026-11-14T08:51:08.7722025Z [36;1mNODE[0m
+2026-11-14T08:51:08.7765072Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:08.7765218Z env:
+2026-11-14T08:51:08.7765363Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:08.7765533Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:08.7765828Z   PORT: 3060
+2026-11-14T08:51:08.7765963Z ##[endgroup]
+2026-11-14T08:51:08.8051664Z PASS: landing page, Get Started, assets, and 16 matching sample items.
+2026-11-14T08:51:08.8146902Z ##[group]Run actions/upload-pages-artifact@v5.0.0
+2026-11-14T08:51:08.8147103Z with:
+2026-11-14T08:51:08.8147227Z   path: dist
+2026-11-14T08:51:08.8147349Z   name: github-pages
+2026-11-14T08:51:08.8147487Z   retention-days: 1
+2026-11-14T08:51:08.8147621Z   include-hidden-files: false
+2026-11-14T08:51:08.8147763Z env:
+2026-11-14T08:51:08.8147906Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:08.8148078Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:08.8148220Z   PORT: 3060
+2026-11-14T08:51:08.8148336Z ##[endgroup]
+2026-11-14T08:51:08.8194518Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run]
+2026-11-14T08:51:08.8228080Z ##[group]Run echo ::group::Archive artifact
+2026-11-14T08:51:08.8228296Z [36;1mecho ::group::Archive artifact[0m
+2026-11-14T08:51:08.8228450Z [36;1mtar \[0m
+2026-11-14T08:51:08.8228615Z [36;1m  --dereference --hard-dereference \[0m
+2026-11-14T08:51:08.8228792Z [36;1m  --directory "$INPUT_PATH" \[0m
+2026-11-14T08:51:08.8229028Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2026-11-14T08:51:08.8229194Z [36;1m  --exclude=.git \[0m
+2026-11-14T08:51:08.8229337Z [36;1m  --exclude=.github \[0m
+2026-11-14T08:51:08.8229474Z [36;1m  --exclude=.[^/]* \[0m
+2026-11-14T08:51:08.8229620Z [36;1m  .[0m
+2026-11-14T08:51:08.8229743Z [36;1mecho ::endgroup::[0m
+2026-11-14T08:51:08.8285221Z shell: /usr/bin/sh -e {0}
+2026-11-14T08:51:08.8285390Z env:
+2026-11-14T08:51:08.8285544Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:08.8285862Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:08.8286009Z   PORT: 3060
+2026-11-14T08:51:08.8286129Z   INPUT_PATH: dist
+2026-11-14T08:51:08.8286254Z ##[endgroup]
+2026-11-14T08:51:08.8353473Z ##[group]Archive artifact
+2026-11-14T08:51:08.8366498Z ./
+2026-11-14T08:51:08.8366723Z ./data/
+2026-11-14T08:51:08.8366908Z ./data/items.json
+2026-11-14T08:51:08.8367050Z ./index.html
+2026-11-14T08:51:08.8367179Z ./app.js
+2026-11-14T08:51:08.8367292Z ./style.css
+2026-11-14T08:51:08.8369679Z ##[endgroup]
+2026-11-14T08:51:08.8379786Z ##[end-action id=__actions_upload-pages-artifact.__run;outcome=success;conclusion=success;duration_ms=18]
+2026-11-14T08:51:08.8382896Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+2026-11-14T08:51:08.8386725Z ##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-14T08:51:08.8388376Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+2026-11-14T08:51:08.8390876Z ##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-14T08:51:08.8392373Z ##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+2026-11-14T08:51:08.8434007Z ##[group]Run actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+2026-11-14T08:51:08.8434241Z with:
+2026-11-14T08:51:08.8434358Z   name: github-pages
+2026-11-14T08:51:08.8434529Z   path: /home/runner/work/_temp/artifact.tar
+2026-11-14T08:51:08.8434688Z   retention-days: 1
+2026-11-14T08:51:08.8434813Z   if-no-files-found: error
+2026-11-14T08:51:08.8434951Z   compression-level: 6
+2026-11-14T08:51:08.8435078Z   overwrite: false
+2026-11-14T08:51:08.8435342Z   include-hidden-files: false
+2026-11-14T08:51:08.8435482Z   archive: true
+2026-11-14T08:51:08.8435594Z env:
+2026-11-14T08:51:08.8435904Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:08.8436084Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:08.8436224Z   PORT: 3060
+2026-11-14T08:51:08.8436337Z ##[endgroup]
+2026-11-14T08:51:08.9501268Z With the provided path, there will be 1 file uploaded
+2026-11-14T08:51:08.9504368Z Artifact name is valid!
+2026-11-14T08:51:08.9505633Z Root directory input is valid!
+2026-11-14T08:51:09.2117368Z Uploading artifact: github-pages.zip
+2026-11-14T08:51:09.2146418Z Beginning upload of artifact content to blob storage
+2026-11-14T08:51:09.4026565Z Uploaded bytes 5908
+2026-11-14T08:51:09.4460216Z Finished uploading artifact content to blob storage!
+2026-11-14T08:51:09.4461091Z SHA256 digest of uploaded artifact is d3255cf80a6c336846b138767fc358736fcb5606534a90ecec674982e28afdce
+2026-11-14T08:51:09.4461580Z Finalizing artifact upload
+2026-11-14T08:51:09.8909748Z Artifact github-pages successfully finalized. Artifact ID 14106892622
+2026-11-14T08:51:09.8910569Z Artifact github-pages has been successfully uploaded! Final size is 5908 bytes. Artifact ID is 14106892622
+2026-11-14T08:51:09.8913193Z Artifact download URL: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/runs/43577709243/artifacts/14106892622
+2026-11-14T08:51:09.9019376Z ##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=1062]
+2026-11-14T08:51:09.9057690Z ##[group]Run if [ -f /tmp/second-chance-api.log ]; then cat /tmp/second-chance-api.log; fi
+2026-11-14T08:51:09.9058087Z [36;1mif [ -f /tmp/second-chance-api.log ]; then cat /tmp/second-chance-api.log; fi[0m
+2026-11-14T08:51:09.9058430Z [36;1mif [ -f /tmp/second-chance-api.pid ]; then kill "$(cat /tmp/second-chance-api.pid)" || true; fi[0m
+2026-11-14T08:51:09.9101876Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:09.9102051Z env:
+2026-11-14T08:51:09.9102218Z   MONGODB_URI: mongodb://127.0.0.1:27017
+2026-11-14T08:51:09.9102392Z   MONGODB_DATABASE: secondChance
+2026-11-14T08:51:09.9102540Z   PORT: 3060
+2026-11-14T08:51:09.9102659Z ##[endgroup]
+2026-11-14T08:51:09.9187920Z Second Chance is running at http://localhost:3060
+2026-11-14T08:51:09.9288804Z Post job cleanup.
+2026-11-14T08:51:10.0263192Z Post job cleanup.
+2026-11-14T08:51:10.0911190Z [command]/usr/bin/git version
+2026-11-14T08:51:10.0951775Z git version 2.56.1
+2026-11-14T08:51:10.0979513Z Temporarily overriding HOME='/home/runner/work/_temp/f700accb-aff9-40f4-8ab3-3f7a58277ae4' before making global git config changes
+2026-11-14T08:51:10.0980356Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-14T08:51:10.0983515Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone
+2026-11-14T08:51:10.1022130Z Removing SSH command configuration
+2026-11-14T08:51:10.1028786Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-14T08:51:10.1075162Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-14T08:51:10.1367968Z Removing HTTP extra header
+2026-11-14T08:51:10.1370211Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-14T08:51:10.1418271Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-14T08:51:10.1677199Z Removing includeIf entries pointing to credentials config files
+2026-11-14T08:51:10.1683203Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-14T08:51:10.1708235Z includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git.path
+2026-11-14T08:51:10.1709523Z includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git/worktrees/*.path
+2026-11-14T08:51:10.1710053Z includeif.gitdir:/github/workspace/.git.path
+2026-11-14T08:51:10.1710423Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-14T08:51:10.1717280Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git.path
+2026-11-14T08:51:10.1740946Z /home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:10.1749866Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-4b60fd04\-9698\-4170\-8aaa\-62072c76f854\.config
+2026-11-14T08:51:10.1785604Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git/worktrees/*.path
+2026-11-14T08:51:10.1808749Z /home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:10.1816430Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/backend-nodejs-capstone/backend-nodejs-capstone/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-4b60fd04\-9698\-4170\-8aaa\-62072c76f854\.config
+2026-11-14T08:51:10.1847013Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-14T08:51:10.1868395Z /github/runner_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:10.1874808Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-4b60fd04\-9698\-4170\-8aaa\-62072c76f854\.config
+2026-11-14T08:51:10.1906583Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-14T08:51:10.1928766Z /github/runner_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config
+2026-11-14T08:51:10.1934653Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-4b60fd04\-9698\-4170\-8aaa\-62072c76f854\.config
+2026-11-14T08:51:10.1966741Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-14T08:51:10.2200982Z Removing credentials config '/home/runner/work/_temp/git-credentials-4b60fd04-9698-4170-8aaa-62072c76f854.config'
+2026-11-14T08:51:10.2316466Z Print service container logs: fb5d14b6e9914475846afbc8234230e6_mongo70_d4cf4b
+2026-11-14T08:51:10.2319963Z ##[command]/usr/bin/docker logs --details 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:51:10.2446365Z  {"t":{"$date":"2026-11-14T08:50:47.995+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+2026-11-14T08:51:10.2448404Z  {"t":{"$date":"2026-11-14T08:50:47.996+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":21},"outgoing":{"minWireVersion":6,"maxWireVersion":21},"isInternalClient":true}}}
+2026-11-14T08:51:10.2450328Z  {"t":{"$date":"2026-11-14T08:50:47.996+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"parallel execution pool","numThreads":0,"minThreads":0,"maxThreads":128}}
+2026-11-14T08:51:10.2451752Z  {"t":{"$date":"2026-11-14T08:50:47.996+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+2026-11-14T08:51:10.2468820Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"AuthorizationManager","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+2026-11-14T08:51:10.2469947Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"ThreadPool2","numThreads":0,"minThreads":0,"maxThreads":1}}
+2026-11-14T08:51:10.2470577Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"ThreadPool1","numThreads":0,"minThreads":0,"maxThreads":1}}
+2026-11-14T08:51:10.2471182Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"OCSPCache","numThreads":0,"minThreads":0,"maxThreads":8}}
+2026-11-14T08:51:10.2471842Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"IndexBuildsCoordinatorMongod","numThreads":0,"minThreads":0,"maxThreads":1000000000}}
+2026-11-14T08:51:10.2472581Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+2026-11-14T08:51:10.2473364Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+2026-11-14T08:51:10.2473958Z  {"t":{"$date":"2026-11-14T08:50:47.997+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+2026-11-14T08:51:10.2474492Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"ReadWriteConcernDefaults","numThreads":0,"minThreads":0,"maxThreads":1}}
+2026-11-14T08:51:10.2475054Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"TENANT_M", "id":7091600, "ctx":"main","msg":"Starting TenantMigrationAccessBlockerRegistry"}
+2026-11-14T08:51:10.2475761Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"main","msg":"Starting thread pool","attr":{"poolName":"TenantMigrationBlockerAsyncThreadPool","numThreads":0,"minThreads":0,"maxThreads":4}}
+2026-11-14T08:51:10.2476762Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"31f31b07b491"}}
+2026-11-14T08:51:10.2477678Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"7.0.48","gitVersion":"6937736f0539a5d4c8edb2970255b9369cb385a5","openSSLVersion":"OpenSSL 3.0.2 15 Mar 2022","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2204","distarch":"x86_64","target_arch":"x86_64"}}}}
+2026-11-14T08:51:10.2478531Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"22.04"}}}
+2026-11-14T08:51:10.2479067Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"}}}}
+2026-11-14T08:51:10.2479675Z  {"t":{"$date":"2026-11-14T08:50:47.998+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"OCSPManagerHTTP","numThreads":0,"minThreads":1,"maxThreads":10}}
+2026-11-14T08:51:10.2480480Z  {"t":{"$date":"2026-11-14T08:50:47.999+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+2026-11-14T08:51:10.2482222Z  {"t":{"$date":"2026-11-14T08:50:47.999+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=7479M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+2026-11-14T08:51:10.2484076Z  {"t":{"$date":"2026-11-14T08:50:48.109+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1794646248,"ts_usec":109818,"thread":"1:0x761296909cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 0 milliseconds"}}}
+2026-11-14T08:51:10.2485328Z  {"t":{"$date":"2026-11-14T08:50:48.109+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1794646248,"ts_usec":109904,"thread":"1:0x761296909cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+2026-11-14T08:51:10.2486707Z  {"t":{"$date":"2026-11-14T08:50:48.109+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1794646248,"ts_usec":109915,"thread":"1:0x761296909cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+2026-11-14T08:51:10.2488225Z  {"t":{"$date":"2026-11-14T08:50:48.109+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1794646248,"ts_usec":109934,"thread":"1:0x761296909cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery was completed successfully and took 0ms, including 0ms for the log replay, 0ms for the rollback to stable, and 0ms for the checkpoint."}}}
+2026-11-14T08:51:10.2489244Z  {"t":{"$date":"2026-11-14T08:50:48.112+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":113}}
+2026-11-14T08:51:10.2489787Z  {"t":{"$date":"2026-11-14T08:50:48.112+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+2026-11-14T08:51:10.2490509Z  {"t":{"$date":"2026-11-14T08:50:48.116+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+2026-11-14T08:51:10.2491415Z  {"t":{"$date":"2026-11-14T08:50:48.116+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"admin.system.version","uuidDisposition":"provided","uuid":{"uuid":{"$uuid":"2e7a1c36-9d38-47a5-becc-294ca05c08f5"}},"options":{"uuid":{"$uuid":"2e7a1c36-9d38-47a5-becc-294ca05c08f5"}}}}
+2026-11-14T08:51:10.2492564Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"2e7a1c36-9d38-47a5-becc-294ca05c08f5"}},"namespace":"admin.system.version","index":"_id_","ident":"index-1--7780734160419027214","collectionIdent":"collection-0--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2493545Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"REPL",     "id":20459,   "ctx":"initandlisten","msg":"Setting featureCompatibilityVersion","attr":{"newVersion":"7.0"}}
+2026-11-14T08:51:10.2494159Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"7.0","context":"setFCV"}}
+2026-11-14T08:51:10.2495457Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":21},"outgoing":{"minWireVersion":6,"maxWireVersion":21},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":21,"maxWireVersion":21},"outgoing":{"minWireVersion":21,"maxWireVersion":21},"isInternalClient":true}}}
+2026-11-14T08:51:10.2497708Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":21,"maxWireVersion":21},"outgoing":{"minWireVersion":21,"maxWireVersion":21},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":21,"maxWireVersion":21},"outgoing":{"minWireVersion":21,"maxWireVersion":21},"isInternalClient":true}}}
+2026-11-14T08:51:10.2499172Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"7.0","context":"startup"}}
+2026-11-14T08:51:10.2499736Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+2026-11-14T08:51:10.2500261Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+2026-11-14T08:51:10.2500908Z  {"t":{"$date":"2026-11-14T08:50:48.119+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+2026-11-14T08:51:10.2501560Z  {"t":{"$date":"2026-11-14T08:50:48.120+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+2026-11-14T08:51:10.2502293Z  {"t":{"$date":"2026-11-14T08:50:48.120+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"deferred writer pool","numThreads":0,"minThreads":0,"maxThreads":1}}
+2026-11-14T08:51:10.2502991Z  {"t":{"$date":"2026-11-14T08:50:48.120+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"StandaloneThreadPool","numThreads":0,"minThreads":1,"maxThreads":1000000000}}
+2026-11-14T08:51:10.2503727Z  {"t":{"$date":"2026-11-14T08:50:48.120+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"WaitForMajorityServiceReadThreadPool","numThreads":0,"minThreads":0,"maxThreads":2}}
+2026-11-14T08:51:10.2504485Z  {"t":{"$date":"2026-11-14T08:50:48.121+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"WaitForMajorityServiceWriteThreadPool","numThreads":0,"minThreads":0,"maxThreads":2}}
+2026-11-14T08:51:10.2505435Z  {"t":{"$date":"2026-11-14T08:50:48.121+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"initandlisten","msg":"createCollection","attr":{"namespace":"local.startup_log","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"e8bb2180-aaf0-4838-beec-97bcaec20b3d"}},"options":{"capped":true,"size":10485760}}}
+2026-11-14T08:51:10.2506690Z  {"t":{"$date":"2026-11-14T08:50:48.123+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"initandlisten","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"e8bb2180-aaf0-4838-beec-97bcaec20b3d"}},"namespace":"local.startup_log","index":"_id_","ident":"index-3--7780734160419027214","collectionIdent":"collection-2--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2507656Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+2026-11-14T08:51:10.2508345Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"TTLMonitorMetadataRefresh","numThreads":0,"minThreads":0,"maxThreads":5}}
+2026-11-14T08:51:10.2508901Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+2026-11-14T08:51:10.2509451Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"StatsCache","numThreads":0,"minThreads":0,"maxThreads":2}}
+2026-11-14T08:51:10.2510108Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"EXECUTOR", "id":11280000,"ctx":"initandlisten","msg":"Starting thread pool","attr":{"poolName":"ServiceExecutorFixed","numThreads":0,"minThreads":0,"maxThreads":1000}}
+2026-11-14T08:51:10.2510882Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"CONTROL",  "id":20712,   "ctx":"LogicalSessionCacheReap","msg":"Sessions collection is not set up; waiting until next sessions reap interval","attr":{"error":"NamespaceNotFound: config.system.sessions does not exist"}}
+2026-11-14T08:51:10.2511559Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+2026-11-14T08:51:10.2512096Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}
+2026-11-14T08:51:10.2512554Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+2026-11-14T08:51:10.2513258Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"LogicalSessionCacheRefresh","msg":"createCollection","attr":{"namespace":"config.system.sessions","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"acf824f6-800d-4cc4-bc18-14bb72a4729c"}},"options":{}}}
+2026-11-14T08:51:10.2515523Z  {"t":{"$date":"2026-11-14T08:50:48.124+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Create storage engine":"116 ms","Write current PID to file":"0 ms","Write a new metadata for storage engine":"0 ms","Initialize FCV before rebuilding indexes":"0 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Load cluster parameters from disk for a standalone":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"1 ms","Initialize information needed to make a mongod instance shard aware":"0 ms","Start up the replication coordinator":"1 ms","Start transport layer":"0 ms","_initAndListen total elapsed time":"126 ms"}}}}
+2026-11-14T08:51:10.2518163Z  {"t":{"$date":"2026-11-14T08:50:48.128+00:00"},"s":"I",  "c":"REPL",     "id":7360102, "ctx":"LogicalSessionCacheRefresh","msg":"Added oplog entry for create to transaction","attr":{"namespace":"config.$cmd","uuid":{"uuid":{"$uuid":"acf824f6-800d-4cc4-bc18-14bb72a4729c"}},"object":{"create":"system.sessions","idIndex":{"v":2,"key":{"_id":1},"name":"_id_"}}}}
+2026-11-14T08:51:10.2519323Z  {"t":{"$date":"2026-11-14T08:50:48.128+00:00"},"s":"I",  "c":"REPL",     "id":7360100, "ctx":"LogicalSessionCacheRefresh","msg":"Added oplog entry for createIndexes to transaction","attr":{"namespace":"config.$cmd","uuid":{"uuid":{"$uuid":"acf824f6-800d-4cc4-bc18-14bb72a4729c"}},"object":{"createIndexes":"system.sessions","v":2,"key":{"lastUse":1},"name":"lsidTTLIndex","expireAfterSeconds":1800}}}
+2026-11-14T08:51:10.2520601Z  {"t":{"$date":"2026-11-14T08:50:48.129+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"acf824f6-800d-4cc4-bc18-14bb72a4729c"}},"namespace":"config.system.sessions","index":"_id_","ident":"index-5--7780734160419027214","collectionIdent":"collection-4--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2522033Z  {"t":{"$date":"2026-11-14T08:50:48.129+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"LogicalSessionCacheRefresh","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"acf824f6-800d-4cc4-bc18-14bb72a4729c"}},"namespace":"config.system.sessions","index":"lsidTTLIndex","ident":"index-6--7780734160419027214","collectionIdent":"collection-4--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2523214Z  {"t":{"$date":"2026-11-14T08:50:58.182+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:32982","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"88a937ff-1b6b-41ee-abe6-1833ad9e7f74"}},"connectionId":1,"connectionCount":1}}
+2026-11-14T08:51:10.2524727Z  {"t":{"$date":"2026-11-14T08:50:58.183+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"127.0.0.1:32982","client":"conn1","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2526327Z  {"t":{"$date":"2026-11-14T08:50:58.183+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn1","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:32982","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2527543Z  {"t":{"$date":"2026-11-14T08:50:58.186+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:32992","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"6af06fbd-3666-48a5-82a0-d6bcd9fa4a97"}},"connectionId":2,"connectionCount":2}}
+2026-11-14T08:51:10.2540611Z  {"t":{"$date":"2026-11-14T08:50:58.186+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"127.0.0.1:32992","client":"conn2","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2542123Z  {"t":{"$date":"2026-11-14T08:50:58.186+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn2","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:32992","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2543101Z  {"t":{"$date":"2026-11-14T08:50:58.195+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn2","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":8}}
+2026-11-14T08:51:10.2543874Z  {"t":{"$date":"2026-11-14T08:50:58.255+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:33008","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0ff14792-5969-4c0f-bc70-c341ce33e537"}},"connectionId":3,"connectionCount":3}}
+2026-11-14T08:51:10.2544735Z  {"t":{"$date":"2026-11-14T08:50:58.256+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:33018","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"8461b233-ddf8-4eac-8b0f-4cac5f0ac7b0"}},"connectionId":4,"connectionCount":4}}
+2026-11-14T08:51:10.2546051Z  {"t":{"$date":"2026-11-14T08:50:58.258+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"127.0.0.1:33008","client":"conn3","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2547363Z  {"t":{"$date":"2026-11-14T08:50:58.258+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn3","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:33008","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2548782Z  {"t":{"$date":"2026-11-14T08:50:58.258+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"127.0.0.1:33018","client":"conn4","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2550097Z  {"t":{"$date":"2026-11-14T08:50:58.258+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn4","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:33018","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2551169Z  {"t":{"$date":"2026-11-14T08:50:58.260+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:33032","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"899e18a0-ebcd-4332-b964-0cb957e42fc2"}},"connectionId":5,"connectionCount":5}}
+2026-11-14T08:51:10.2551941Z  {"t":{"$date":"2026-11-14T08:50:58.261+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn4","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":2}}
+2026-11-14T08:51:10.2552951Z  {"t":{"$date":"2026-11-14T08:50:58.262+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"127.0.0.1:33032","client":"conn5","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2554352Z  {"t":{"$date":"2026-11-14T08:50:58.262+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn5","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:33032","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2555320Z  {"t":{"$date":"2026-11-14T08:50:58.264+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn5","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":2}}
+2026-11-14T08:51:10.2556258Z  {"t":{"$date":"2026-11-14T08:50:58.267+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn1","msg":"Connection ended","attr":{"remote":"127.0.0.1:32982","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"88a937ff-1b6b-41ee-abe6-1833ad9e7f74"}},"connectionId":1,"connectionCount":4}}
+2026-11-14T08:51:10.2557099Z  {"t":{"$date":"2026-11-14T08:50:58.267+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn5","msg":"Connection ended","attr":{"remote":"127.0.0.1:33032","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"899e18a0-ebcd-4332-b964-0cb957e42fc2"}},"connectionId":5,"connectionCount":3}}
+2026-11-14T08:51:10.2557933Z  {"t":{"$date":"2026-11-14T08:50:58.267+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn4","msg":"Connection ended","attr":{"remote":"127.0.0.1:33018","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"8461b233-ddf8-4eac-8b0f-4cac5f0ac7b0"}},"connectionId":4,"connectionCount":2}}
+2026-11-14T08:51:10.2558770Z  {"t":{"$date":"2026-11-14T08:50:58.267+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn2","msg":"Connection ended","attr":{"remote":"127.0.0.1:32992","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"6af06fbd-3666-48a5-82a0-d6bcd9fa4a97"}},"connectionId":2,"connectionCount":1}}
+2026-11-14T08:51:10.2559719Z  {"t":{"$date":"2026-11-14T08:50:58.267+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn3","msg":"Connection ended","attr":{"remote":"127.0.0.1:33008","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"0ff14792-5969-4c0f-bc70-c341ce33e537"}},"connectionId":3,"connectionCount":0}}
+2026-11-14T08:51:10.2560571Z  {"t":{"$date":"2026-11-14T08:51:06.905+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.1:47800","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"607aee36-8bbf-464a-9b0f-d2805ceac92d"}},"connectionId":6,"connectionCount":1}}
+2026-11-14T08:51:10.2561549Z  {"t":{"$date":"2026-11-14T08:51:06.907+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn6","msg":"client metadata","attr":{"remote":"172.18.0.1:47800","client":"conn6","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2562593Z  {"t":{"$date":"2026-11-14T08:51:06.907+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn6","msg":"Connection not authenticating","attr":{"client":"172.18.0.1:47800","doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2563527Z  {"t":{"$date":"2026-11-14T08:51:06.912+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.1:47814","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"61c15529-ecd9-45dc-b0be-8acb6c556fe5"}},"connectionId":7,"connectionCount":2}}
+2026-11-14T08:51:10.2564574Z  {"t":{"$date":"2026-11-14T08:51:06.912+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn7","msg":"client metadata","attr":{"remote":"172.18.0.1:47814","client":"conn7","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2565599Z  {"t":{"$date":"2026-11-14T08:51:06.912+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn7","msg":"Connection not authenticating","attr":{"client":"172.18.0.1:47814","doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2566575Z  {"t":{"$date":"2026-11-14T08:51:06.913+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn7","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":1}}
+2026-11-14T08:51:10.2567318Z  {"t":{"$date":"2026-11-14T08:51:06.913+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn7","msg":"createCollection","attr":{"namespace":"secondChance.users","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"39791095-b65f-40aa-bd66-f4baa3a28be3"}},"options":{}}}
+2026-11-14T08:51:10.2568221Z  {"t":{"$date":"2026-11-14T08:51:06.917+00:00"},"s":"I",  "c":"REPL",     "id":7360102, "ctx":"conn7","msg":"Added oplog entry for create to transaction","attr":{"namespace":"secondChance.$cmd","uuid":{"uuid":{"$uuid":"39791095-b65f-40aa-bd66-f4baa3a28be3"}},"object":{"create":"users","idIndex":{"v":2,"key":{"_id":1},"name":"_id_"}}}}
+2026-11-14T08:51:10.2569242Z  {"t":{"$date":"2026-11-14T08:51:06.917+00:00"},"s":"I",  "c":"REPL",     "id":7360100, "ctx":"conn7","msg":"Added oplog entry for createIndexes to transaction","attr":{"namespace":"secondChance.$cmd","uuid":{"uuid":{"$uuid":"39791095-b65f-40aa-bd66-f4baa3a28be3"}},"object":{"createIndexes":"users","v":2,"unique":true,"key":{"email":1},"name":"email_1"}}}
+2026-11-14T08:51:10.2570462Z  {"t":{"$date":"2026-11-14T08:51:06.918+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn7","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"39791095-b65f-40aa-bd66-f4baa3a28be3"}},"namespace":"secondChance.users","index":"_id_","ident":"index-8--7780734160419027214","collectionIdent":"collection-7--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2571691Z  {"t":{"$date":"2026-11-14T08:51:06.918+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn7","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"39791095-b65f-40aa-bd66-f4baa3a28be3"}},"namespace":"secondChance.users","index":"email_1","ident":"index-9--7780734160419027214","collectionIdent":"collection-7--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2572709Z  {"t":{"$date":"2026-11-14T08:51:06.924+00:00"},"s":"I",  "c":"STORAGE",  "id":20320,   "ctx":"conn7","msg":"createCollection","attr":{"namespace":"secondChance.items","uuidDisposition":"generated","uuid":{"uuid":{"$uuid":"6da366c1-0d7b-470a-81bf-5602956a1f21"}},"options":{}}}
+2026-11-14T08:51:10.2573603Z  {"t":{"$date":"2026-11-14T08:51:06.927+00:00"},"s":"I",  "c":"REPL",     "id":7360102, "ctx":"conn7","msg":"Added oplog entry for create to transaction","attr":{"namespace":"secondChance.$cmd","uuid":{"uuid":{"$uuid":"6da366c1-0d7b-470a-81bf-5602956a1f21"}},"object":{"create":"items","idIndex":{"v":2,"key":{"_id":1},"name":"_id_"}}}}
+2026-11-14T08:51:10.2574702Z  {"t":{"$date":"2026-11-14T08:51:06.927+00:00"},"s":"I",  "c":"INDEX",    "id":20345,   "ctx":"conn7","msg":"Index build: done building","attr":{"buildUUID":null,"collectionUUID":{"uuid":{"$uuid":"6da366c1-0d7b-470a-81bf-5602956a1f21"}},"namespace":"secondChance.items","index":"_id_","ident":"index-11--7780734160419027214","collectionIdent":"collection-10--7780734160419027214","commitTimestamp":null}}
+2026-11-14T08:51:10.2575979Z  {"t":{"$date":"2026-11-14T08:51:06.930+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn6","msg":"Connection ended","attr":{"remote":"172.18.0.1:47800","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"607aee36-8bbf-464a-9b0f-d2805ceac92d"}},"connectionId":6,"connectionCount":1}}
+2026-11-14T08:51:10.2576812Z  {"t":{"$date":"2026-11-14T08:51:06.930+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn7","msg":"Connection ended","attr":{"remote":"172.18.0.1:47814","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"61c15529-ecd9-45dc-b0be-8acb6c556fe5"}},"connectionId":7,"connectionCount":0}}
+2026-11-14T08:51:10.2577659Z  {"t":{"$date":"2026-11-14T08:51:07.348+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.1:47818","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"07de7512-1112-49d5-be26-03ce0ac0592a"}},"connectionId":8,"connectionCount":1}}
+2026-11-14T08:51:10.2578622Z  {"t":{"$date":"2026-11-14T08:51:07.350+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn8","msg":"client metadata","attr":{"remote":"172.18.0.1:47818","client":"conn8","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2579651Z  {"t":{"$date":"2026-11-14T08:51:07.350+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn8","msg":"Connection not authenticating","attr":{"client":"172.18.0.1:47818","doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2580608Z  {"t":{"$date":"2026-11-14T08:51:07.354+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"172.18.0.1:47828","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"2ac094dd-145b-4311-9e68-d85b7708ea5f"}},"connectionId":9,"connectionCount":2}}
+2026-11-14T08:51:10.2581576Z  {"t":{"$date":"2026-11-14T08:51:07.355+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn9","msg":"client metadata","attr":{"remote":"172.18.0.1:47828","client":"conn9","negotiatedCompressors":[],"doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2582740Z  {"t":{"$date":"2026-11-14T08:51:07.355+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn9","msg":"Connection not authenticating","attr":{"client":"172.18.0.1:47828","doc":{"driver":{"name":"nodejs","version":"6.22.0"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"7.0.0-1019-azure","type":"Linux"}}}}
+2026-11-14T08:51:10.2583562Z  {"t":{"$date":"2026-11-14T08:51:07.356+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn9","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":1}}
+2026-11-14T08:51:10.2584328Z  {"t":{"$date":"2026-11-14T08:51:08.567+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44796","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"bb54f2f9-5e88-4d7c-870c-bb3a3496005a"}},"connectionId":10,"connectionCount":3}}
+2026-11-14T08:51:10.2585450Z  {"t":{"$date":"2026-11-14T08:51:08.569+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn10","msg":"client metadata","attr":{"remote":"127.0.0.1:44796","client":"conn10","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2586918Z  {"t":{"$date":"2026-11-14T08:51:08.569+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn10","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44796","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2587995Z  {"t":{"$date":"2026-11-14T08:51:08.572+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44798","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"13b6478b-31b6-43aa-beea-40b806f42305"}},"connectionId":11,"connectionCount":4}}
+2026-11-14T08:51:10.2589104Z  {"t":{"$date":"2026-11-14T08:51:08.573+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn11","msg":"client metadata","attr":{"remote":"127.0.0.1:44798","client":"conn11","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2590426Z  {"t":{"$date":"2026-11-14T08:51:08.573+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn11","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44798","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2591399Z  {"t":{"$date":"2026-11-14T08:51:08.582+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn11","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":9}}
+2026-11-14T08:51:10.2592174Z  {"t":{"$date":"2026-11-14T08:51:08.646+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44800","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"d60ccf79-32c3-4dd2-a944-2649ef86b2e5"}},"connectionId":12,"connectionCount":5}}
+2026-11-14T08:51:10.2593113Z  {"t":{"$date":"2026-11-14T08:51:08.647+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44810","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"d991004c-0933-4275-a618-3670bbcef75e"}},"connectionId":13,"connectionCount":6}}
+2026-11-14T08:51:10.2594224Z  {"t":{"$date":"2026-11-14T08:51:08.650+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn12","msg":"client metadata","attr":{"remote":"127.0.0.1:44800","client":"conn12","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2595549Z  {"t":{"$date":"2026-11-14T08:51:08.650+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn12","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44800","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2597036Z  {"t":{"$date":"2026-11-14T08:51:08.651+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn13","msg":"client metadata","attr":{"remote":"127.0.0.1:44810","client":"conn13","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2598428Z  {"t":{"$date":"2026-11-14T08:51:08.651+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn13","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44810","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2599491Z  {"t":{"$date":"2026-11-14T08:51:08.653+00:00"},"s":"I",  "c":"NETWORK",  "id":22943,   "ctx":"listener","msg":"Connection accepted","attr":{"remote":"127.0.0.1:44812","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"21944821-594d-4a51-90c9-90b955a58c79"}},"connectionId":14,"connectionCount":7}}
+2026-11-14T08:51:10.2600254Z  {"t":{"$date":"2026-11-14T08:51:08.654+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn13","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":3}}
+2026-11-14T08:51:10.2601270Z  {"t":{"$date":"2026-11-14T08:51:08.654+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn14","msg":"client metadata","attr":{"remote":"127.0.0.1:44812","client":"conn14","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2602588Z  {"t":{"$date":"2026-11-14T08:51:08.654+00:00"},"s":"I",  "c":"ACCESS",   "id":10483900,"ctx":"conn14","msg":"Connection not authenticating","attr":{"client":"127.0.0.1:44812","doc":{"application":{"name":"mongosh 2.14.2"},"driver":{"name":"nodejs|mongosh","version":"7.5.0|2.14.2"},"platform":"Node.js v24.22.2, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+2026-11-14T08:51:10.2603557Z  {"t":{"$date":"2026-11-14T08:51:08.657+00:00"},"s":"I",  "c":"NETWORK",  "id":6788700, "ctx":"conn14","msg":"Received first command on ingress connection since session start or auth handshake","attr":{"elapsedMillis":2}}
+2026-11-14T08:51:10.2604390Z  {"t":{"$date":"2026-11-14T08:51:08.660+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn10","msg":"Connection ended","attr":{"remote":"127.0.0.1:44796","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"bb54f2f9-5e88-4d7c-870c-bb3a3496005a"}},"connectionId":10,"connectionCount":6}}
+2026-11-14T08:51:10.2605222Z  {"t":{"$date":"2026-11-14T08:51:08.660+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn13","msg":"Connection ended","attr":{"remote":"127.0.0.1:44810","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"d991004c-0933-4275-a618-3670bbcef75e"}},"connectionId":13,"connectionCount":5}}
+2026-11-14T08:51:10.2606220Z  {"t":{"$date":"2026-11-14T08:51:08.661+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn12","msg":"Connection ended","attr":{"remote":"127.0.0.1:44800","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"d60ccf79-32c3-4dd2-a944-2649ef86b2e5"}},"connectionId":12,"connectionCount":4}}
+2026-11-14T08:51:10.2607054Z  {"t":{"$date":"2026-11-14T08:51:08.661+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn11","msg":"Connection ended","attr":{"remote":"127.0.0.1:44798","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"13b6478b-31b6-43aa-beea-40b806f42305"}},"connectionId":11,"connectionCount":3}}
+2026-11-14T08:51:10.2607888Z  {"t":{"$date":"2026-11-14T08:51:08.661+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn14","msg":"Connection ended","attr":{"remote":"127.0.0.1:44812","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"21944821-594d-4a51-90c9-90b955a58c79"}},"connectionId":14,"connectionCount":2}}
+2026-11-14T08:51:10.2608569Z  {"t":{"$date":"2026-11-14T08:51:09.923+00:00"},"s":"I",  "c":"-",        "id":20883,   "ctx":"conn8","msg":"Interrupted operation as its client disconnected","attr":{"opId":271}}
+2026-11-14T08:51:10.2609442Z  {"t":{"$date":"2026-11-14T08:51:09.923+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn9","msg":"Connection ended","attr":{"remote":"172.18.0.1:47828","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"2ac094dd-145b-4311-9e68-d85b7708ea5f"}},"connectionId":9,"connectionCount":1}}
+2026-11-14T08:51:10.2610268Z  {"t":{"$date":"2026-11-14T08:51:09.924+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn8","msg":"Connection ended","attr":{"remote":"172.18.0.1:47818","isLoadBalanced":false,"uuid":{"uuid":{"$uuid":"07de7512-1112-49d5-be26-03ce0ac0592a"}},"connectionId":8,"connectionCount":0}}
+2026-11-14T08:51:10.2616509Z Stop and remove container: fb5d14b6e9914475846afbc8234230e6_mongo70_d4cf4b
+2026-11-14T08:51:10.2620925Z ##[command]/usr/bin/docker rm --force 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:51:11.2987259Z 31f31b07b491f8783a1d7dda64f6c74c6cda40ae2f50e42b65d3f692bb2de4fb
+2026-11-14T08:51:11.3014549Z Remove container network: github_network_83d2d1eb3e2540ce9a6fb238f6fef68f
+2026-11-14T08:51:11.3018191Z ##[command]/usr/bin/docker network rm github_network_83d2d1eb3e2540ce9a6fb238f6fef68f
+2026-11-14T08:51:11.3559389Z github_network_83d2d1eb3e2540ce9a6fb238f6fef68f
+2026-11-14T08:51:11.3627898Z Cleaning up orphan processes
+
+
+=== Deploy landing page: success ===
+1. Set up job: success
+2. Configure GitHub Pages: success
+3. Deploy to GitHub Pages: success
+4. Verify deployed landing page: success
+5. Complete job: success
+
+--- Complete GitHub Actions terminal log: Deploy landing page ---
+2026-11-14T08:51:18.8236598Z Current runner version: '2.338.2'
+2026-11-14T08:51:18.8260379Z ##[group]Runner Image Provisioner
+2026-11-14T08:51:18.8261182Z Hosted Compute Agent
+2026-11-14T08:51:18.8261762Z Version: 20261103.629
+2026-11-14T08:51:18.8262337Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-14T08:51:18.8262986Z Build Date: 2026-11-03T17:26:59Z
+2026-11-14T08:51:18.8263629Z Worker ID: {7295b95f-5a09-4ff4-a69b-3cc84fb3c5e4}
+2026-11-14T08:51:18.8264278Z Region: westus3
+2026-11-14T08:51:18.8264787Z Cloud: Azure
+2026-11-14T08:51:18.8265319Z ##[endgroup]
+2026-11-14T08:51:18.8266915Z ##[group]Operating System
+2026-11-14T08:51:18.8267544Z Ubuntu
+2026-11-14T08:51:18.8268036Z 26.04.1
+2026-11-14T08:51:18.8268855Z LTS
+2026-11-14T08:51:18.8269372Z ##[endgroup]
+2026-11-14T08:51:18.8269874Z ##[group]Runner Image
+2026-11-14T08:51:18.8270447Z Image: ubuntu-26.04
+2026-11-14T08:51:18.8270972Z Version: 20261111.196.1
+2026-11-14T08:51:18.8272458Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-14T08:51:18.8273825Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-14T08:51:18.8274700Z ##[endgroup]
+2026-11-14T08:51:18.8275797Z ##[group]GITHUB_TOKEN Permissions
+2026-11-14T08:51:18.8277936Z Contents: read
+2026-11-14T08:51:18.8278645Z Metadata: read
+2026-11-14T08:51:18.8279182Z Pages: write
+2026-11-14T08:51:18.8279708Z ##[endgroup]
+2026-11-14T08:51:18.8281683Z Secret source: Actions
+2026-11-14T08:51:18.8282563Z Cache mode: write
+2026-11-14T08:51:18.8283206Z Prepare workflow directory
+2026-11-14T08:51:18.8651910Z Prepare all required actions
+2026-11-14T08:51:18.8700439Z Getting action download info
+2026-11-14T08:51:19.1601900Z Download action repository 'actions/configure-pages@v6.0.0' (SHA:45bfe0192ca1faeb007ade9deae92b16b8254a0d)
+2026-11-14T08:51:19.8210790Z Download action repository 'actions/deploy-pages@v5.0.1' (SHA:368f82528645a54fb793d4d04e342629a3f51346)
+2026-11-14T08:51:20.5296106Z Complete job name: Deploy landing page
+2026-11-14T08:51:20.6076668Z ##[group]Run actions/configure-pages@v6.0.0
+2026-11-14T08:51:20.6077636Z with:
+2026-11-14T08:51:20.6080715Z   token: ***
+2026-11-14T08:51:20.6081092Z   enablement: false
+2026-11-14T08:51:20.6081823Z ##[endgroup]
+2026-11-14T08:51:21.2570827Z ##[group]Run actions/deploy-pages@v5.0.1
+2026-11-14T08:51:21.2571273Z with:
+2026-11-14T08:51:21.2574001Z   token: ***
+2026-11-14T08:51:21.2574315Z   timeout: 600000
+2026-11-14T08:51:21.2574646Z   error_count: 10
+2026-11-14T08:51:21.2574978Z   reporting_interval: 5000
+2026-11-14T08:51:21.2575347Z   artifact_name: github-pages
+2026-11-14T08:51:21.2575719Z   preview: false
+2026-11-14T08:51:21.2576038Z env:
+2026-11-14T08:51:21.2576341Z   GITHUB_PAGES: true
+2026-11-14T08:51:21.2576671Z ##[endgroup]
+2026-11-14T08:51:21.4454201Z (node:2301) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-14T08:51:21.4455153Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-14T08:51:21.6747812Z Fetching artifact metadata for "github-pages" in this workflow run
+2026-11-14T08:51:21.8908902Z Found 1 artifact(s)
+2026-11-14T08:51:21.8974042Z Creating Pages deployment with payload:
+2026-11-14T08:51:21.8975307Z {
+2026-11-14T08:51:21.8975828Z 	"artifact_id": 14106892622,
+2026-11-14T08:51:21.8976749Z 	"pages_build_version": "8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae",
+2026-11-14T08:51:21.9040368Z 	"oidc_token": "***"
+2026-11-14T08:51:21.9040757Z }
+2026-11-14T08:51:23.6865190Z Created deployment for 8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae, ID: 8b44c8db8c3802c3b5c336fa5f91fc8b049c6eae
+2026-11-14T08:51:28.6449655Z Getting Pages deployment status...
+2026-11-14T08:51:28.8946461Z Reported success!
+2026-11-14T08:51:28.9188808Z ##[group]Run curl --fail --location --retry 10 --retry-delay 5 --retry-all-errors "$PAGE_URL" --output /tmp/landing.html
+2026-11-14T08:51:28.9189876Z [36;1mcurl --fail --location --retry 10 --retry-delay 5 --retry-all-errors "$PAGE_URL" --output /tmp/landing.html[0m
+2026-11-14T08:51:28.9190743Z [36;1mgrep -q 'Second Chance' /tmp/landing.html[0m
+2026-11-14T08:51:28.9191118Z [36;1mgrep -q 'Get Started' /tmp/landing.html[0m
+2026-11-14T08:51:28.9191441Z [36;1mecho "Deployment verified: $PAGE_URL"[0m
+2026-11-14T08:51:28.9223648Z shell: /usr/bin/bash -e {0}
+2026-11-14T08:51:28.9223936Z env:
+2026-11-14T08:51:28.9224133Z   GITHUB_PAGES: true
+2026-11-14T08:51:28.9224521Z   PAGE_URL: https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/
+2026-11-14T08:51:28.9224941Z ##[endgroup]
+2026-11-14T08:51:28.9372103Z   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+2026-11-14T08:51:28.9372932Z                                  Dload  Upload  Total   Spent   Left   Speed
+2026-11-14T08:51:28.9373298Z 
+2026-11-14T08:51:29.0639054Z   0      0   0      0   0      0      0      0                              0
+2026-11-14T08:51:29.0639957Z 100   3730 100   3730   0      0  29332      0                              0
+2026-11-14T08:51:29.0640741Z 100   3730 100   3730   0      0  29324      0                              0
+2026-11-14T08:51:29.0641529Z 100   3730 100   3730   0      0  29318      0                              0
+2026-11-14T08:51:29.0692597Z Deployment verified: https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/
+2026-11-14T08:51:29.0792623Z Evaluate and set environment url
+2026-11-14T08:51:29.0797682Z Evaluated environment url: https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/
+2026-11-14T08:51:29.0799000Z Cleaning up orphan processes
+
+
