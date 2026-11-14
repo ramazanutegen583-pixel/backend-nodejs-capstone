@@ -15,6 +15,8 @@
 Задание 13: скопируйте весь текст login.
 Задание 14: скопируйте весь текст item_detail.
 Задание 15: скопируйте весь текст search_item.
+Задание 16: скопируйте весь текст файла CICD — полный журнал успешного GitHub Actions workflow со всеми шагами.
+Успешный запуск задания 16: https://github.com/ramazanutegen583-pixel/second-chance-capstone/actions/runs/43576506119
 
 Развёрнутая главная страница:
 https://second-chance-demo.novelmotor4.chatgpt.site

@@ -52,3 +52,9 @@ npm run evidence
 `user-story.md` and `.github/ISSUE_TEMPLATE/user-story.md` contain the user story template. Eight stories are defined in `data/user-stories.json`. After authenticating GitHub, `npm run publish:github` creates a public repository and its labeled issues using an in-memory `GITHUB_TOKEN` environment variable. Push source separately. `submission/github-links.json` contains the URLs after publication.
 
 For task 2, save a genuine screenshot of the repository's Issues page as `userstories.png`. For task 10, save a genuine browser screenshot of the deployed landing page, including its URL bar, as `deployed_landingpage.png`.
+
+## CI/CD
+
+`.github/workflows/cicd.yml` runs on pushes to main, pull requests, and manual dispatch. It installs locked dependencies, checks JavaScript syntax, imports 16 items into a MongoDB service, runs the API integration tests, validates the landing page, and uploads its deployment artifact. Successful main-branch runs deploy the landing page to GitHub Pages and verify the published page. Pull requests run validation without deployment.
+
+View [GitHub Actions](https://github.com/ramazanutegen583-pixel/second-chance-capstone/actions/workflows/cicd.yml). After a successful run, `node scripts/github-actions.mjs logs RUN_ID` saves its full job logs and step results in `submission/CICD` for task 16. Authentication uses `GITHUB_TOKEN` or the existing Git Credential Manager sign-in; credentials are not written into the project.
