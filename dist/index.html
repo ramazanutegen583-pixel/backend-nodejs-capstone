@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Second Chance helps useful things find a new home. Explore a simple community sharing project.">
+  <title>Second Chance — Good things deserve another life</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="Second Chance home"><span class="brand-mark" aria-hidden="true">↗</span> Second Chance</a>
+    <a class="nav-link" href="#browse">Browse items <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="green-dot"></span> LESS WASTE. MORE POSSIBILITY.</span>
+        <h1 id="hero-title">Good things deserve <em>another life.</em></h1>
+        <p class="hero-description">Give useful things a second chance. Find everyday items to reuse, share, and make your own — all for free.</p>
+        <a class="button" href="#browse">Get Started <span aria-hidden="true">↗</span></a>
+        <p class="hero-note">A small step toward a more thoughtful community.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="art-label">A NEW HOME STARTS HERE</span>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="object object-chair">🪑<small>Ready for a new chapter</small></div>
+        <div class="object object-plant">🪴</div>
+        <div class="object object-books">📚</div>
+        <div class="free-label">Pass it on.<br><strong>Keep it going.</strong></div>
+        <span class="art-spark spark-one">✳</span><span class="art-spark spark-two">✳</span>
+      </div>
+    </section>
+    <section class="steps wrap" aria-label="How it works">
+      <p><span>01</span> Find something useful</p>
+      <p><span>02</span> Give it a new purpose</p>
+      <p><span>03</span> Keep good things going</p>
+    </section>
+    <section id="browse" class="browse wrap" aria-labelledby="browse-title">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE THE POSSIBILITIES</span><h2 id="browse-title">Find your next good thing.</h2></div><span class="sample-label">Sample listings</span></div>
+      <p class="section-description">Explore the project’s sample collection. These listings demonstrate the app and are not live offers.</p>
+      <form class="filters" id="filters" role="search">
+        <label class="search-label" for="search"><span aria-hidden="true">⌕</span><input id="search" name="search" type="search" aria-label="Search sample items" placeholder="Search items…" autocomplete="off"></label>
+        <label class="category-label" for="category"><span class="sr-only">Category</span><select id="category" name="category"><option value="">All categories</option><option>Electronics</option><option>Furniture</option><option>Books</option><option>Clothing</option><option>Sports</option><option>Household</option></select></label>
+      </form>
+      <p id="result-count" class="result-count" aria-live="polite">Loading sample items…</p>
+      <div id="items" class="items"></div>
+      <p id="empty-state" class="empty-state" hidden>No items match your search. Try another word or category.</p>
+    </section>
+  </main>
+  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">↗</span> Second Chance</a><p>A little less waste. A little more community.</p><small>Student project · Sample inventory</small></footer>
+</body>
+</html>
+

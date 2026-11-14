@@ -1,0 +1,22 @@
+{
+  "acknowledged": true,
+  "insertedCount": 16,
+  "insertedIds": {
+    "0": "6af818754e6ecb34ff4f318a",
+    "1": "6af818754e6ecb34ff4f318b",
+    "2": "6af818754e6ecb34ff4f318c",
+    "3": "6af818754e6ecb34ff4f318d",
+    "4": "6af818754e6ecb34ff4f318e",
+    "5": "6af818754e6ecb34ff4f318f",
+    "6": "6af818754e6ecb34ff4f3190",
+    "7": "6af818754e6ecb34ff4f3191",
+    "8": "6af818754e6ecb34ff4f3192",
+    "9": "6af818754e6ecb34ff4f3193",
+    "10": "6af818754e6ecb34ff4f3194",
+    "11": "6af818754e6ecb34ff4f3195",
+    "12": "6af818754e6ecb34ff4f3196",
+    "13": "6af818754e6ecb34ff4f3197",
+    "14": "6af818754e6ecb34ff4f3198",
+    "15": "6af818754e6ecb34ff4f3199"
+  }
+}

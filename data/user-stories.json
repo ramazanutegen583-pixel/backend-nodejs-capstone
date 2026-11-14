@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Register a new account",
+    "label": "new",
+    "asA": "new visitor",
+    "iNeed": "to register with my name, email, and password",
+    "soThat": "I can use my own Second Chance account",
+    "assumptions": ["An email address can belong to only one account."],
+    "given": "I have not registered before",
+    "when": "I submit valid registration details",
+    "then": "my account is created and I receive a successful response"
+  },
+  {
+    "title": "Sign in to an existing account",
+    "label": "new",
+    "asA": "registered user",
+    "iNeed": "to sign in with my email and password",
+    "soThat": "I can manage my account and shared items",
+    "assumptions": ["The account has already been registered."],
+    "given": "I have a registered account",
+    "when": "I submit the correct email and password",
+    "then": "I receive a successful login response and an authentication token"
+  },
+  {
+    "title": "Browse available items",
+    "label": "backlog",
+    "asA": "visitor",
+    "iNeed": "to see all available items",
+    "soThat": "I can find something useful to reuse",
+    "assumptions": ["The database contains sample items."],
+    "given": "items are available in the database",
+    "when": "I open the item list",
+    "then": "the available items are displayed with their names and categories"
+  },
+  {
+    "title": "View an item's details",
+    "label": "backlog",
+    "asA": "visitor",
+    "iNeed": "to open an item's full details",
+    "soThat": "I can decide whether the item suits my needs",
+    "assumptions": ["Each item has a unique identifier."],
+    "given": "an item exists",
+    "when": "I request the item by its identifier",
+    "then": "I see its name, description, category, and other saved details"
+  },
+  {
+    "title": "Search items and filter by category",
+    "label": "backlog",
+    "asA": "visitor",
+    "iNeed": "to search by a keyword and choose a category",
+    "soThat": "I can quickly find relevant items",
+    "assumptions": ["Items have a name, description, and category."],
+    "given": "items exist in multiple categories",
+    "when": "I search for a keyword and select a category",
+    "then": "only items matching the search and category are returned"
+  },
+  {
+    "title": "Share an item with an image",
+    "label": "new",
+    "asA": "signed-in user",
+    "iNeed": "to upload an item with its details and an image",
+    "soThat": "someone else can give it a second chance",
+    "assumptions": ["The upload field is named file."],
+    "given": "I am signed in and have an item to share",
+    "when": "I submit the item details and an image",
+    "then": "the item is saved and can be viewed in the item list"
+  },
+  {
+    "title": "Delete an item I shared",
+    "label": "technical debt",
+    "asA": "item owner",
+    "iNeed": "to delete an item that is no longer available",
+    "soThat": "the list remains accurate",
+    "assumptions": ["Only an item's owner may delete it.", "Invalid or missing item identifiers return a clear error."],
+    "given": "I am signed in and own an existing item",
+    "when": "I delete that item by its identifier",
+    "then": "the item is removed and no longer appears in the list"
+  },
+  {
+    "title": "Update my profile information",
+    "label": "icebox",
+    "asA": "signed-in user",
+    "iNeed": "to update my profile information",
+    "soThat": "my account details stay current",
+    "assumptions": ["A user may update only their own account."],
+    "given": "I am signed in",
+    "when": "I submit valid changes to my profile",
+    "then": "my updated information is saved and returned without my password"
+  }
+]

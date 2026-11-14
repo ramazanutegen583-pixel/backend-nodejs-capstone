@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+!.env.example
+uploads/
+.local/
+*.zip
+submission/*-private.json
+.openai/*.json.tmp

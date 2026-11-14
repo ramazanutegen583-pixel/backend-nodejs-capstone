@@ -1,0 +1,27 @@
+{
+  "name": "second-chance-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A simple Second Chance item-sharing project and MongoDB REST API.",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node scripts/start-local.js",
+    "seed": "node scripts/seed.js",
+    "evidence": "node scripts/collect-evidence.mjs",
+    "test": "node test/api.test.js",
+    "publish:github": "node scripts/publish-github.mjs"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.21.0",
+    "multer": "^2.0.2",
+    "natural": "^8.1.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^10.3.0"
+  }
+}

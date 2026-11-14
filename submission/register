@@ -1,0 +1,11 @@
+curl -X POST -H 'Content-Type: application/json' --data-raw '{"name":"Demo Student","email":"student.1794644168038@example.com","password":"SecondChance123!"}' -i 'http://localhost:3060/api/auth/register'
+
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+Content-Length: 332
+ETag: W/"14c-PFciOuVEuoTpv8whHMxhJCNsiak"
+Date: Sat, 14 Nov 2026 08:16:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"message":"User registered successfully.","user":{"id":"6af818c84e6ecb34ff4f319e","name":"Demo Student","email":"student.1794644168038@example.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjgxOGM4NGU2ZWNiMzRmZjRmMzE5ZSIsImlhdCI6MTc5NDY0NDE2OCwiZXhwIjoxNzk0NjQ3NzY4fQ.4d4aJxLul-BnzFtBls5_DyjmWn2UUGpsum27ynYcSRs"}
