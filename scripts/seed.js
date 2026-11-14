@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { ObjectId } from 'mongodb';
-import { connectToDatabase, closeDatabase } from '../db.js';
+import { connectToDatabase, closeDatabase } from '../secondChance-backend/db.js';
 
 export async function seedItems() {
   const db = await connectToDatabase();

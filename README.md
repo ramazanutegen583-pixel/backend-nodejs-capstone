@@ -2,6 +2,28 @@
 
 A simple capstone project for sharing useful second-hand items. The repository contains an Express API backed by MongoDB, 16 sample items, user authentication, and a small landing page.
 
+The public assignment repository is [backend-nodejs-capstone](https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone).
+
+## Repository layout
+
+```text
+user-story.md
+.github/ISSUE_TEMPLATE/user-story.md
+secondChance-backend/
+  app.js
+  db.js
+  routes/
+    secondChanceItemsRoutes.js
+    searchRoutes.js
+    authRoutes.js
+sentiment/
+  index.js
+dist/
+submission/
+```
+
+`secondChance-backend` contains the MongoDB connection and Express routes. `sentiment/index.js` imports the `natural` package. The root scripts start the backend and collect genuine terminal evidence in `submission`.
+
 ## Quick start
 
 Use Node.js 20.19 or newer and npm or pnpm.
@@ -51,10 +73,12 @@ npm run evidence
 
 `user-story.md` and `.github/ISSUE_TEMPLATE/user-story.md` contain the user story template. Eight stories are defined in `data/user-stories.json`. After authenticating GitHub, `npm run publish:github` creates a public repository and its labeled issues using an in-memory `GITHUB_TOKEN` environment variable. Push source separately. `submission/github-links.json` contains the URLs after publication.
 
-For task 2, upload the provided `submission/userstories.png`: all eight GitHub Issues and their labels are visible. For task 10, upload `submission/deployed_landingpage.png`: the real Chrome URL bar, project name, description, and Get Started button are visible. The public deployed landing page is https://ramazanutegen583-pixel.github.io/second-chance-capstone/.
+For task 2, upload the provided `submission/userstories.png`: all eight GitHub Issues and their labels are visible. For task 10, upload `submission/deployed_landingpage.png`: the real Chrome URL bar, project name, description, and Get Started button are visible. The public deployed landing page is https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/.
 
 ## CI/CD
 
 `.github/workflows/cicd.yml` runs on pushes to main, pull requests, and manual dispatch. It installs locked dependencies, checks JavaScript syntax, imports 16 items into a MongoDB service, runs the API integration tests, validates the landing page, and uploads its deployment artifact. Successful main-branch runs deploy the landing page to GitHub Pages and verify the published page. Pull requests run validation without deployment.
 
-View [GitHub Actions](https://github.com/ramazanutegen583-pixel/second-chance-capstone/actions/workflows/cicd.yml). After a successful run, `node scripts/github-actions.mjs logs RUN_ID` saves its full job logs and step results in `submission/CICD` for task 16. Authentication uses `GITHUB_TOKEN` or the existing Git Credential Manager sign-in; credentials are not written into the project.
+View [GitHub Actions](https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/workflows/cicd.yml). After a successful run, `node scripts/github-actions.mjs logs RUN_ID` saves its full job logs and step results in `submission/CICD` for task 16. Authentication uses `GITHUB_TOKEN` or the existing Git Credential Manager sign-in; credentials are not written into the project.
+
+The same full output is also saved as `submission/CICD-full.log`. For convenient copying into the assignment or chat, `node scripts/github-actions.mjs report RUN_ID` saves `submission/CICD-copy.txt`: a concise terminal report containing every job and every step with its actual result, followed by selected original lines for installation, MongoDB import, tests, API startup, and deployment. It does not replace the full `CICD` log.

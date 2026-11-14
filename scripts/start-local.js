@@ -11,6 +11,6 @@ if (!process.env.MONGODB_URI) {
 process.env.JWT_SECRET ||= randomBytes(32).toString('hex');
 const { seedItems } = await import('./seed.js');
 await seedItems();
-const { startServer } = await import('../index.js');
+const { startServer } = await import('../secondChance-backend/index.js');
 const server = await startServer();
 if (mongo) server.once('close', () => mongo.stop());

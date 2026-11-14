@@ -14,7 +14,7 @@ export function createApp(tokenizer) {
   app.use('/api/auth', authRoutes);
   app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
   app.use('/uploads', express.static(fileURLToPath(new URL('./uploads/', import.meta.url))));
-  app.use(express.static(fileURLToPath(new URL('./dist/', import.meta.url))));
+  app.use(express.static(fileURLToPath(new URL('../dist/', import.meta.url))));
   app.use((req, res) => res.status(404).json({ error: 'Route not found.' }));
   app.use((error, req, res, next) => {
     if (error.code === 'LIMIT_FILE_SIZE') return res.status(400).json({ error: 'Maximum image size is 5 MB.' });

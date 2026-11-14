@@ -1,7 +1,7 @@
 import { spawnSync } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 
-const repository = 'ramazanutegen583-pixel/second-chance-capstone';
+const repository = 'ramazanutegen583-pixel/backend-nodejs-capstone';
 let token = process.env.GITHUB_TOKEN;
 if (!token) {
   const credential = spawnSync('git', ['credential', 'fill'], {
@@ -18,7 +18,7 @@ async function api(endpoint, method = 'GET', body, raw = false) {
     method,
     headers: {
       Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`,
-      'X-GitHub-Api-Version': '2026-03-10', 'User-Agent': 'second-chance-capstone',
+      'X-GitHub-Api-Version': '2026-03-10', 'User-Agent': 'backend-nodejs-capstone',
       ...(body ? { 'Content-Type': 'application/json' } : {})
     },
     ...(body ? { body: JSON.stringify(body) } : {})

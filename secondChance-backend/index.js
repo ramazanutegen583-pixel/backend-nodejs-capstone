@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import natural from 'natural';
+import { tokenizer } from '../sentiment/index.js';
 import { randomBytes } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { createApp } from './app.js';
@@ -11,7 +11,7 @@ export async function startServer() {
     process.env.JWT_SECRET = randomBytes(32).toString('hex');
   }
   await connectToDatabase();
-  const app = createApp(new natural.WordTokenizer());
+  const app = createApp(tokenizer);
   const port = Number(process.env.PORT || 3060);
   const server = app.listen(port, '127.0.0.1', () => console.log(`Second Chance is running at http://localhost:${port}`));
   const stop = () => server.close(async () => { await closeDatabase(); process.exit(0); });

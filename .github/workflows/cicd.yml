@@ -54,7 +54,7 @@ jobs:
       - name: Start API and wait for readiness
         run: |
           export JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
-          node index.js > /tmp/second-chance-api.log 2>&1 &
+          node secondChance-backend/index.js > /tmp/second-chance-api.log 2>&1 &
           echo $! > /tmp/second-chance-api.pid
           for attempt in {1..30}; do
             if curl --silent --fail http://127.0.0.1:3060/api/health; then

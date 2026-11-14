@@ -1,11 +1,11 @@
 {
-  "name": "second-chance-capstone",
+  "name": "backend-nodejs-capstone",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "A simple Second Chance item-sharing project and MongoDB REST API.",
   "scripts": {
-    "start": "node index.js",
+    "start": "node secondChance-backend/index.js",
     "dev": "node scripts/start-local.js",
     "seed": "node scripts/seed.js",
     "evidence": "node scripts/collect-evidence.mjs",

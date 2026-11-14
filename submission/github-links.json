@@ -1,56 +1,56 @@
 {
-  "repository": "https://github.com/ramazanutegen583-pixel/second-chance-capstone",
-  "issues": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues",
+  "repository": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone",
+  "issues": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues",
   "branch": "main",
   "files": {
-    "user-story.md": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/user-story.md",
-    "db.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/db.js",
-    "secondChanceItemsRoutes.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/secondChanceItemsRoutes.js",
-    "searchRoutes.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/searchRoutes.js",
-    "app.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/app.js",
-    "index.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/index.js",
-    "authRoutes.js": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/authRoutes.js"
+    "user-story.md": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/.github/ISSUE_TEMPLATE/user-story.md",
+    "db.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/db.js",
+    "secondChanceItemsRoutes.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/secondChanceItemsRoutes.js",
+    "searchRoutes.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/searchRoutes.js",
+    "app.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/app.js",
+    "index.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/sentiment/index.js",
+    "authRoutes.js": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/authRoutes.js"
   },
   "userStories": [
     {
       "title": "Register a new account",
       "label": "new",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/1"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/1"
     },
     {
       "title": "Sign in to an existing account",
       "label": "new",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/2"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/2"
     },
     {
       "title": "Browse available items",
       "label": "backlog",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/3"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/3"
     },
     {
       "title": "View an item's details",
       "label": "backlog",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/4"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/4"
     },
     {
       "title": "Search items and filter by category",
       "label": "backlog",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/5"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/5"
     },
     {
       "title": "Share an item with an image",
       "label": "new",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/6"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/6"
     },
     {
       "title": "Delete an item I shared",
       "label": "technical debt",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/7"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/7"
     },
     {
       "title": "Update my profile information",
       "label": "icebox",
-      "url": "https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues/8"
+      "url": "https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues/8"
     }
   ]
 }

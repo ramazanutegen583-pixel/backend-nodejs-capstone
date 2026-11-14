@@ -13,7 +13,7 @@ async function request(method, endpoint, body) {
       Accept: 'application/vnd.github+json',
       Authorization: `Bearer ${token}`,
       'X-GitHub-Api-Version': '2022-11-28',
-      'User-Agent': 'second-chance-capstone',
+      'User-Agent': 'backend-nodejs-capstone',
       ...(body ? { 'Content-Type': 'application/json' } : {})
     },
     ...(body ? { body: JSON.stringify(body) } : {})
@@ -42,7 +42,7 @@ function storyBody(story) {
 }
 
 const user = await request('GET', '/user');
-const requestedRepository = process.env.GH_REPOSITORY || `${user.login}/second-chance-capstone`;
+const requestedRepository = process.env.GH_REPOSITORY || `${user.login}/backend-nodejs-capstone`;
 if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(requestedRepository)) {
   throw new Error('GH_REPOSITORY must have the format owner/repository.');
 }
@@ -98,13 +98,13 @@ for (const story of stories) {
 const branch = repository.default_branch || 'main';
 const repoUrl = repository.html_url;
 const filePaths = {
-  'user-story.md': 'user-story.md',
-  'db.js': 'db.js',
-  'secondChanceItemsRoutes.js': 'routes/secondChanceItemsRoutes.js',
-  'searchRoutes.js': 'routes/searchRoutes.js',
-  'app.js': 'app.js',
-  'index.js': 'index.js',
-  'authRoutes.js': 'routes/authRoutes.js'
+  'user-story.md': '.github/ISSUE_TEMPLATE/user-story.md',
+  'db.js': 'secondChance-backend/db.js',
+  'secondChanceItemsRoutes.js': 'secondChance-backend/routes/secondChanceItemsRoutes.js',
+  'searchRoutes.js': 'secondChance-backend/routes/searchRoutes.js',
+  'app.js': 'secondChance-backend/app.js',
+  'index.js': 'sentiment/index.js',
+  'authRoutes.js': 'secondChance-backend/routes/authRoutes.js'
 };
 const files = Object.fromEntries(Object.entries(filePaths).map(([name, filePath]) => [name, `${repoUrl}/blob/${encodeURIComponent(branch)}/${filePath}`]));
 const links = {

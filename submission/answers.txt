@@ -1,25 +1,25 @@
 МАТЕРИАЛЫ ДЛЯ СДАЧИ — SECOND CHANCE
 
-Задание 1: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/user-story.md
-Задание 2: загрузите готовый userstories.png — настоящий скриншот страницы Issues с 8 историями и метками. Восемь историй опубликованы: https://github.com/ramazanutegen583-pixel/second-chance-capstone/issues
+Задание 1: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/.github/ISSUE_TEMPLATE/user-story.md
+Задание 2: загрузите готовый userstories.png — настоящий скриншот страницы Issues с 8 историями и метками. Восемь историй опубликованы: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/issues
 Задание 3: скопируйте весь текст файла inserted_items.
-Задание 4: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/db.js
-Задание 5: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/secondChanceItemsRoutes.js
-Задание 6: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/searchRoutes.js
-Задание 7: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/app.js
-Задание 8: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/index.js
-Задание 9: https://github.com/ramazanutegen583-pixel/second-chance-capstone/blob/main/routes/authRoutes.js
+Задание 4: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/db.js
+Задание 5: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/secondChanceItemsRoutes.js
+Задание 6: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/searchRoutes.js
+Задание 7: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/app.js
+Задание 8: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/sentiment/index.js
+Задание 9: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/blob/main/secondChance-backend/routes/authRoutes.js
 Задание 10: загрузите готовый deployed_landingpage.png — настоящий скриншот публичной страницы с адресной строкой, названием, описанием и Get Started.
 Задание 11: скопируйте весь текст mainpage.
 Задание 12: скопируйте весь текст register.
 Задание 13: скопируйте весь текст login.
 Задание 14: скопируйте весь текст item_detail.
 Задание 15: скопируйте весь текст search_item.
-Задание 16: скопируйте весь текст файла CICD — полный журнал успешного GitHub Actions workflow со всеми шагами.
-Успешный запуск задания 16: https://github.com/ramazanutegen583-pixel/second-chance-capstone/actions/runs/43576506119
+Задание 16: для удобного копирования скопируйте весь CICD-copy.txt — настоящий компактный вывод успешного workflow со всеми шагами. Полный журнал сохранён в CICD и CICD-full.log.
+Успешный запуск задания 16: https://github.com/ramazanutegen583-pixel/backend-nodejs-capstone/actions/runs/43576506119
 
 Развёрнутая главная страница:
-https://ramazanutegen583-pixel.github.io/second-chance-capstone/
+https://ramazanutegen583-pixel.github.io/backend-nodejs-capstone/
 
 Локальный API запущен на http://localhost:3060.
 Результаты MongoDB и cURL получены настоящими запросами, а не составлены вручную.
